@@ -1,19 +1,35 @@
 import React, { useState } from "react";
 import "./TextProvider.css";
 
-const TextProvider = () => {
-  const [text, setText] = useState<string>("");
+interface TextOption {
+  id: number;
+  text: string;
+}
 
-  const handleClick = () => {
-    setText("안녕하세요! 이것은 임시 텍스트입니다.");
+const TextProvider = () => {
+  const [selectedText, setSelectedText] = useState<string>("");
+
+  const textOptions: TextOption[] = [
+    { id: 1, text: "오늘도 좋은 하루 되세요!" },
+    { id: 2, text: "화이팅하세요!" },
+    { id: 3, text: "당신은 할 수 있습니다!" },
+  ];
+
+  const handleTextSelect = () => {
+    const randomIndex = Math.floor(Math.random() * textOptions.length);
+    setSelectedText(textOptions[randomIndex].text);
   };
 
   return (
     <div className="text-provider">
-      <button onClick={handleClick} className="provider-button">
-        텍스트 보기
+      <button onClick={handleTextSelect} className="provider-button">
+        응원 메시지 받기
       </button>
-      {text && <p className="provided-text">{text}</p>}
+      {selectedText && (
+        <div className="text-display">
+          <p className="provided-text">{selectedText}</p>
+        </div>
+      )}
     </div>
   );
 };
