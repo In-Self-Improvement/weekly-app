@@ -3,6 +3,17 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  padding: 1.5rem;
+}
+
+.category-selector {
+  margin-bottom: 1rem;
+}
+
+.category-select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
 }
 
 .provider-button {
@@ -12,9 +23,22 @@
   border-radius: 4px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.provider-button:hover {
+  background-color: #0051b3;
+}
+
+.text-display {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
 }
 
 .provided-text {
   color: #333;
   font-size: 1rem;
+  margin: 0;
 }
