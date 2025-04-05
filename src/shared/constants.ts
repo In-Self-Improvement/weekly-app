@@ -1,20 +1,22 @@
-export const apps = [
+import { App } from "@/types/app";
+
+export const apps: App[] = [
   {
     id: "app1",
-    name: "앱 1",
-    description: "첫 번째 앱에 대한 설명입니다.",
+    name: "주간 일정 관리",
+    description: "주간 일정을 효율적으로 관리하고 계획할 수 있는 앱입니다.",
     thumbnail: null,
   },
   {
     id: "app2",
-    name: "앱 2",
-    description: "두 번째 앱에 대한 설명입니다.",
+    name: "할 일 목록",
+    description: "할 일을 쉽게 추가하고 관리할 수 있는 앱입니다.",
     thumbnail: null,
   },
   {
     id: "app3",
-    name: "앱 3",
-    description: "세 번째 앱에 대한 설명입니다.",
+    name: "메모장",
+    description: "중요한 메모를 작성하고 저장할 수 있는 앱입니다.",
     thumbnail: null,
   },
 ];
