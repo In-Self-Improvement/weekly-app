@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PlaceholderIcon from "@/assets/placeholder.svg";
 import StarRating from "@/components/StarRating/StarRating";
+import AppDetails from "@/components/AppInfo/AppDetails";
 
 interface AppPageProps {
   params: {
@@ -59,6 +60,10 @@ export default function AppPage({ params }: AppPageProps) {
 
           <p className="text-gray-700 mb-8">{app.description}</p>
 
+          <div className="mb-8">
+            <AppDetails app={app} />
+          </div>
+
           <div className="bg-gray-50 p-6 rounded-lg mb-8">
             <h2 className="text-xl font-semibold mb-4">앱 평가하기</h2>
             <div className="mb-4">
@@ -78,14 +83,6 @@ export default function AppPage({ params }: AppPageProps) {
             <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md transition-colors">
               평가 제출
             </button>
-          </div>
-
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">앱 정보</h2>
-            <p className="text-gray-600">
-              이 앱에 대한 추가 정보와 기능이 여기에 표시됩니다. 현재는 개발
-              중입니다.
-            </p>
           </div>
         </div>
       </div>
