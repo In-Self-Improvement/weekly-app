@@ -45,7 +45,7 @@ export default function WeatherPage() {
       (position) => {
         fetchWeather(position.coords.latitude, position.coords.longitude);
       },
-      (error) => {
+      () => {
         setError("위치 정보를 가져올 수 없습니다.");
         setLoading(false);
       }
@@ -79,7 +79,7 @@ export default function WeatherPage() {
         windSpeed: data.wind.speed,
         icon: data.weather[0].icon,
       });
-    } catch (err) {
+    } catch {
       setError("날씨 정보를 가져오는데 실패했습니다.");
     } finally {
       setLoading(false);
@@ -183,6 +183,7 @@ export default function WeatherPage() {
             <Card className="mb-4">
               <CardHeader className="text-center">
                 <CardTitle className="flex items-center justify-center gap-2">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
                     alt={weather.description}
