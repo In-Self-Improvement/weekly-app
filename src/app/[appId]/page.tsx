@@ -2,18 +2,19 @@ import { apps } from "@/shared/constants";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import PlaceholderIcon from "@/assets/placeholder.svg";
-import StarRating from "@/components/StarRating/StarRating";
-import AppDetails from "@/components/AppInfo/AppDetails";
+// import PlaceholderIcon from "@/assets/placeholder.svg";
+// import StarRating from "@/components/StarRating/StarRating";
+// import AppDetails from "@/components/AppInfo/AppDetails";
 
 interface AppPageProps {
-  params: {
+  params: Promise<{
     appId: string;
-  };
+  }>;
 }
 
-export default function AppPage({ params }: AppPageProps) {
-  const app = apps.find((app) => app.id === params.appId);
+export default async function AppPage({ params }: AppPageProps) {
+  const { appId } = await params;
+  const app = apps.find((app) => app.id === appId);
 
   if (!app) {
     notFound();
@@ -41,7 +42,9 @@ export default function AppPage({ params }: AppPageProps) {
               />
             ) : (
               <div className="w-full h-64 bg-gray-100 flex items-center justify-center rounded-lg">
-                <PlaceholderIcon className="w-32 h-32 text-gray-400" />
+                <div className="w-32 h-32 bg-gray-300 rounded-lg flex items-center justify-center">
+                  <span className="text-gray-500">No Image</span>
+                </div>
               </div>
             )}
           </div>
@@ -49,7 +52,6 @@ export default function AppPage({ params }: AppPageProps) {
           <div className="flex items-center justify-between mb-4">
             <h1 className="text-3xl font-bold">{app.name}</h1>
             <div className="flex items-center">
-              <StarRating initialRating={app.rating || 0} readonly size="md" />
               {app.totalRatings !== undefined && (
                 <span className="text-gray-500 text-sm ml-2">
                   ({app.totalRatings}개 평가)
@@ -60,21 +62,11 @@ export default function AppPage({ params }: AppPageProps) {
 
           <p className="text-gray-700 mb-8">{app.description}</p>
 
-          <div className="mb-8">
-            <AppDetails app={app} />
-          </div>
+          <div className="mb-8"></div>
 
           <div className="bg-gray-50 p-6 rounded-lg mb-8">
             <h2 className="text-xl font-semibold mb-4">앱 평가하기</h2>
-            <div className="mb-4">
-              <StarRating
-                initialRating={0}
-                size="lg"
-                onRatingChange={(newRating) =>
-                  console.log("새 평점:", newRating)
-                }
-              />
-            </div>
+            <div className="mb-4"></div>
             <textarea
               className="w-full p-3 border border-gray-300 rounded-md mb-3"
               rows={3}
