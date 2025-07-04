@@ -151,8 +151,12 @@ export default function WeatherPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <Button onClick={getLocation} className="w-full">
-                📍 내 위치 날씨 확인
+              <Button 
+                onClick={getLocation} 
+                className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <span className="text-2xl mr-2">📍</span>
+                내 위치 날씨 확인
               </Button>
             </CardContent>
           </Card>
