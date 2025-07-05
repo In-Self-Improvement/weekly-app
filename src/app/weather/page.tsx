@@ -186,7 +186,7 @@ export default function WeatherPage() {
           <>
             <Card className="mb-4">
               <CardHeader className="text-center">
-                <CardTitle className="flex items-center justify-center gap-2">
+                <CardTitle className="flex items-center justify-center gap-2 text-gray-800 font-bold">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={`https://openweathermap.org/img/wn/${weather.icon}@2x.png`}
