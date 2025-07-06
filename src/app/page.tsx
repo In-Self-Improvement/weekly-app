@@ -11,20 +11,12 @@ export default function HomePage() {
       gradient: "bg-gradient-to-br from-blue-500 to-indigo-600"
     },
     {
-      id: "todo",
-      name: "할 일 관리",
-      description: "일정과 할 일을 체계적으로 관리하세요",
-      icon: "📝",
-      href: "/todo",
+      id: "quickwin",
+      name: "QuickWin",
+      description: "간단한 할일로 성취감을 느껴보세요",
+      icon: "🎯",
+      href: "/quickwin",
       gradient: "bg-gradient-to-br from-green-500 to-teal-600"
-    },
-    {
-      id: "calculator",
-      name: "계산기",
-      description: "간단한 계산부터 복잡한 수식까지",
-      icon: "🧮",
-      href: "/calculator",
-      gradient: "bg-gradient-to-br from-purple-500 to-pink-600"
     }
   ];
 

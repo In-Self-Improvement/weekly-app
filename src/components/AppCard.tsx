@@ -31,7 +31,7 @@ export default function AppCard({
         <CardHeader className="text-center">
           <div className="text-4xl mb-2">{icon}</div>
           <CardTitle className="text-white">{name}</CardTitle>
-          <CardDescription className="text-white/80">
+          <CardDescription className="text-white/80 line-clamp-2 min-h-[2.5rem]">
             {description}
           </CardDescription>
         </CardHeader>
