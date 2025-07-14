@@ -155,16 +155,19 @@ export default function LadderGame() {
 
   const handlePlayerCountChange = (count: number) => {
     setPlayerCount(count);
+    // 참가자 수가 변경될 때마다 모든 데이터를 초기화하고 기본값으로 설정
     const newPlayers = Array.from(
       { length: count },
-      (_, i) => players[i] || `참가자${i + 1}`
+      (_, i) => `참가자${i + 1}`
     );
-    const newResults = Array.from(
-      { length: count },
-      (_, i) => results[i] || `결과${i + 1}`
-    );
+    const newResults = Array.from({ length: count }, (_, i) => `결과${i + 1}`);
     setPlayers(newPlayers);
     setResults(newResults);
+
+    // 게임이 시작된 상태라면 리셋
+    if (gameStarted) {
+      resetGame();
+    }
   };
 
   const updatePlayer = (index: number, value: string) => {
