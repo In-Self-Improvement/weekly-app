@@ -264,20 +264,22 @@ export default function LadderGame() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 p-4">
       <div className="max-w-4xl mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+          <h1 className="text-4xl font-bold text-purple-800 mb-2">
             🪜 사다리타기
           </h1>
-          <p className="text-gray-600">공정한 선택을 위한 사다리타기 게임</p>
+          <p className="text-purple-600">공정한 선택을 위한 사다리타기 게임</p>
         </div>
 
-        <div className="max-w-2xl mx-auto mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-center">게임 설정</CardTitle>
+        <div className="max-w-4xl mx-auto mb-8">
+          <Card className="border-2 border-purple-200">
+            <CardHeader className="bg-purple-50">
+              <CardTitle className="text-center text-purple-800">
+                게임 설정
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2 text-center">
+                <label className="block text-sm font-medium mb-2 text-center text-purple-700">
                   참가자 수
                 </label>
                 <div className="flex gap-2 justify-center">
@@ -287,6 +289,11 @@ export default function LadderGame() {
                       variant={playerCount === count ? "default" : "outline"}
                       size="sm"
                       onClick={() => handlePlayerCountChange(count)}
+                      className={
+                        playerCount === count
+                          ? "bg-purple-600 hover:bg-purple-700"
+                          : "text-purple-700 border-purple-300 hover:bg-purple-50"
+                      }
                     >
                       {count}
                     </Button>
@@ -304,10 +311,15 @@ export default function LadderGame() {
                   </Button>
                 ) : (
                   <div className="text-center">
-                    <p className="text-sm text-gray-600 mb-2">
+                    <p className="text-sm text-purple-700 mb-2">
                       참가자를 클릭하여 결과를 확인하세요
                     </p>
-                    <Button onClick={resetGame} variant="outline" size="sm">
+                    <Button
+                      onClick={resetGame}
+                      variant="outline"
+                      size="sm"
+                      className="text-purple-700 border-purple-300 hover:bg-purple-50"
+                    >
                       다시 하기
                     </Button>
                   </div>
@@ -318,9 +330,9 @@ export default function LadderGame() {
         </div>
 
         <div className="max-w-4xl mx-auto mb-8">
-          <Card>
-            <CardHeader>
-              <CardTitle>사다리</CardTitle>
+          <Card className="border-2 border-purple-200">
+            <CardHeader className="bg-purple-50">
+              <CardTitle className="text-purple-800">사다리</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="relative">
@@ -353,7 +365,7 @@ export default function LadderGame() {
                         className={`h-8 text-xs text-center border-2 rounded shadow-sm font-medium transition-all duration-200 ${
                           selectedPlayer === index
                             ? "bg-red-500 border-red-600 text-white"
-                            : "bg-white border-gray-400 text-gray-900 hover:bg-gray-50 hover:border-gray-500"
+                            : "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-50 hover:border-blue-500"
                         } ${
                           isPlaying
                             ? "cursor-not-allowed opacity-50"
@@ -375,7 +387,7 @@ export default function LadderGame() {
                           top: "0px",
                           width: `${boxWidth}px`,
                         }}
-                        className="h-8 text-xs text-center border-2 border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white shadow-sm text-gray-900 font-medium placeholder-gray-500"
+                        className="h-8 text-xs text-center border-2 border-blue-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-blue-50 shadow-sm text-blue-800 font-medium placeholder-blue-600"
                       />
                     );
                   })}
@@ -391,7 +403,7 @@ export default function LadderGame() {
                     ref={canvasRef}
                     width={getCanvasWidth()}
                     height={CANVAS_HEIGHT}
-                    className="border-2 border-gray-300 rounded bg-gray-50 shadow-sm"
+                    className="border-2 border-gray-300 rounded bg-white shadow-sm"
                     style={{
                       display: "block",
                       width: "100%",
@@ -428,7 +440,7 @@ export default function LadderGame() {
                           finalResults.length > 0 &&
                           selectedPath[selectedPath.length - 1] === index
                             ? "bg-red-500 border-red-600 text-white animate-pulse"
-                            : "bg-white border-gray-400 text-gray-900"
+                            : "bg-green-100 border-green-400 text-green-800"
                         }`}
                       >
                         {result || `결과${index + 1}`}
@@ -446,7 +458,7 @@ export default function LadderGame() {
                           top: "0px",
                           width: `${boxWidth}px`,
                         }}
-                        className="h-8 text-xs text-center border-2 border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white shadow-sm text-gray-900 font-medium placeholder-gray-500"
+                        className="h-8 text-xs text-center border-2 border-green-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-green-50 shadow-sm text-green-800 font-medium placeholder-green-600"
                       />
                     );
                   })}
@@ -457,9 +469,9 @@ export default function LadderGame() {
         </div>
 
         {finalResults.length > 0 && (
-          <Card>
-            <CardHeader>
-              <CardTitle>🎉 게임 결과</CardTitle>
+          <Card className="border-2 border-purple-200">
+            <CardHeader className="bg-purple-50">
+              <CardTitle className="text-purple-800">🎉 게임 결과</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -468,7 +480,7 @@ export default function LadderGame() {
                     key={index}
                     className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg"
                   >
-                    <span className="font-medium text-gray-800">
+                    <span className="font-medium text-purple-800">
                       {result.player}
                     </span>
                     <span className="text-lg font-bold text-purple-600">
