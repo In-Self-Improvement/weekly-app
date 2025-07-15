@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+
 import {
   Card,
   CardContent,
@@ -25,7 +26,6 @@ interface ClothingRecommendation {
   color: string;
 }
 
-
 export default function WeatherPage() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,6 @@ export default function WeatherPage() {
       setLoading(false);
       return;
     }
-
     navigator.geolocation.getCurrentPosition(
       (position) => {
         fetchWeather(position.coords.latitude, position.coords.longitude);
@@ -138,7 +137,7 @@ export default function WeatherPage() {
             오늘의 날씨 & 옷차림
           </h1>
           <p className="text-gray-600">
-            현재 위치의 날씨와 추천 옷차림을 확인하세요
+            현재 위치의 실시간 날씨 정보와 기온에 맞는 옷차림을 추천받으세요
           </p>
         </div>
 
@@ -151,12 +150,11 @@ export default function WeatherPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <Button 
-                onClick={getLocation} 
+              <Button
+                onClick={getLocation}
                 className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
-                <span className="text-2xl mr-2">📍</span>
-                내 위치 날씨 확인
+                <span className="text-2xl mr-2">📍</span>내 위치 날씨 확인
               </Button>
             </CardContent>
           </Card>
