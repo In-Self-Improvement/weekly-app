@@ -17,6 +17,14 @@ export default function HomePage() {
       icon: "🎯",
       href: "/quickwin",
       gradient: "bg-gradient-to-br from-green-500 to-teal-600"
+    },
+    {
+      id: "ladder",
+      name: "사다리타기",
+      description: "공정한 선택을 위한 사다리타기 게임",
+      icon: "🪜",
+      href: "/ladder",
+      gradient: "bg-gradient-to-br from-purple-500 to-pink-600"
     }
   ];
 

@@ -1,7 +1,14 @@
 {
   "permissions": {
     "allow": [
-      "mcp__sequential-thinking__sequentialthinking"
+      "mcp__sequential-thinking__sequentialthinking",
+      "mcp__exa-search__web_search_exa",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:css-tricks.com)",
+      "WebFetch(domain:developer.mozilla.org)",
+      "WebFetch(domain:naver.com)",
+      "WebFetch(domain:search.naver.com)",
+      "WebFetch(domain:www.youtube.com)"
     ],
     "deny": []
   }
