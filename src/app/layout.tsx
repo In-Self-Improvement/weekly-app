@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-apps.s3.amazonaws.com"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-app.net"
   ),
   alternates: {
     canonical: "/",
