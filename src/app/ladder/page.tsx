@@ -151,7 +151,7 @@ export default function LadderGame() {
     if (canvasContainer) {
       canvasContainer.style.width = `${getCanvasWidth()}px`;
     }
-  }, [ladderLines, selectedPath, playerCount]);
+  }, [ladderLines, selectedPath, playerCount, getCanvasWidth, renderCanvas]);
 
   const handlePlayerCountChange = (count: number) => {
     setPlayerCount(count);
