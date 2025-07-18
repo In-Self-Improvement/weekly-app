@@ -1,5 +1,4 @@
 import AppCard from "@/components/AppCard";
-import { css } from "@toss/emotion-utils";
 
 export default function HomePage() {
   const apps = [
@@ -9,7 +8,7 @@ export default function HomePage() {
       description: "현재 위치의 날씨와 추천 옷차림을 확인하세요",
       icon: "🌤️",
       href: "/weather",
-      gradient: "bg-gradient-to-br from-blue-500 to-indigo-600"
+      gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
     },
     {
       id: "quickwin",
@@ -17,7 +16,7 @@ export default function HomePage() {
       description: "간단한 할일로 성취감을 느껴보세요",
       icon: "🎯",
       href: "/quickwin",
-      gradient: "bg-gradient-to-br from-green-500 to-teal-600"
+      gradient: "bg-gradient-to-br from-green-500 to-teal-600",
     },
     {
       id: "ladder",
@@ -25,17 +24,15 @@ export default function HomePage() {
       description: "공정한 선택을 위한 사다리타기 게임",
       icon: "🪜",
       href: "/ladder",
-      gradient: "bg-gradient-to-br from-purple-500 to-pink-600"
-    }
+      gradient: "bg-gradient-to-br from-purple-500 to-pink-600",
+    },
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4">
       <div className="max-w-4xl mx-auto pt-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Weekly Apps
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-800 mb-4">Weekly Apps</h1>
           <p className="text-gray-600 text-lg">
             유용한 앱들을 한 곳에서 만나보세요
           </p>
