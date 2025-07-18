@@ -1,4 +1,5 @@
 import AppCard from "@/components/AppCard";
+import { css } from "@toss/emotion-utils";
 
 export default function HomePage() {
   const apps = [

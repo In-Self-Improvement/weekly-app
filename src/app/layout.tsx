@@ -81,6 +81,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        <script 
+          src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
