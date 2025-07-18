@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 import {
   Card,
   CardContent,
@@ -25,9 +26,20 @@ export default function AppCard({
   href, 
   gradient 
 }: AppCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (cardRef.current && typeof window !== 'undefined' && (window as any).remoji) {
+      (window as any).remoji.parse(cardRef.current, {
+        font: 'tossface',
+        className: 'toss-emoji block mx-auto w-12 h-12'
+      });
+    }
+  }, []);
+
   return (
     <Link href={href}>
-      <Card className={`cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg ${gradient}`}>
+      <Card ref={cardRef} className={`cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg ${gradient}`}>
         <CardHeader className="text-center">
           <div className="text-4xl mb-2">{icon}</div>
           <CardTitle className="text-white">{name}</CardTitle>
