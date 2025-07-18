@@ -85,6 +85,7 @@ export default function RootLayout({
         <script 
           src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
           crossOrigin="anonymous"
+          async
         ></script>
       </head>
       <body

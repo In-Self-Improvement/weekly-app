@@ -29,11 +29,14 @@ export default function AppCard({
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (cardRef.current && typeof window !== 'undefined' && (window as any).remoji) {
-      (window as any).remoji.parse(cardRef.current, {
-        font: 'tossface',
-        className: 'toss-emoji block mx-auto w-12 h-12'
-      });
+    if (cardRef.current && typeof window !== 'undefined') {
+      const remoji = (window as unknown as { remoji?: { parse: (element: Element, options?: { font?: string; className?: string }) => void } }).remoji;
+      if (remoji) {
+        remoji.parse(cardRef.current, {
+          font: 'tossface',
+          className: 'toss-emoji block mx-auto w-12 h-12'
+        });
+      }
     }
   }, []);
 
