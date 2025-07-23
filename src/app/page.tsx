@@ -34,6 +34,22 @@ export default function HomePage() {
       href: "/bmi",
       gradient: "bg-gradient-to-br from-rose-500 to-orange-600",
     },
+    {
+      id: "age",
+      name: "나이 계산기",
+      description: "생년월일로 정확한 나이와 생일까지 남은 날을 계산하세요",
+      icon: "🎂",
+      href: "/age",
+      gradient: "bg-gradient-to-br from-cyan-500 to-blue-600",
+    },
+    {
+      id: "compound-interest",
+      name: "복리 계산기",
+      description: "투자의 마법, 복리 효과를 미리 체험해보세요",
+      icon: "💰",
+      href: "/compound-interest",
+      gradient: "bg-gradient-to-br from-emerald-500 to-teal-600",
+    },
   ];
 
   return (
