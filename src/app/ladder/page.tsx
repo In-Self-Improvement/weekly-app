@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -29,13 +29,13 @@ export default function LadderGame() {
   const LADDER_HEIGHT = 6;
   const LINE_SPACING = 80;
   const LEVEL_HEIGHT = 50;
-  const getCanvasWidth = () => Math.max(300, playerCount * LINE_SPACING + 100);
+  const getCanvasWidth = useCallback(() => Math.max(300, playerCount * LINE_SPACING + 100), [playerCount]);
   const CANVAS_HEIGHT = 400;
-  const getCanvasLeftPadding = () =>
-    (getCanvasWidth() - (playerCount - 1) * LINE_SPACING) / 2;
+  const getCanvasLeftPadding = useCallback(() =>
+    (getCanvasWidth() - (playerCount - 1) * LINE_SPACING) / 2, [getCanvasWidth, playerCount]);
 
   // Canvas 그리기 함수들
-  const drawLadder = (ctx: CanvasRenderingContext2D) => {
+  const drawLadder = useCallback((ctx: CanvasRenderingContext2D) => {
     ctx.clearRect(0, 0, getCanvasWidth(), CANVAS_HEIGHT);
 
     // 세로선 그리기
@@ -63,9 +63,9 @@ export default function LadderGame() {
       ctx.lineTo(x2, y);
       ctx.stroke();
     });
-  };
+  }, [getCanvasWidth, getCanvasLeftPadding, playerCount, ladderLines]);
 
-  const drawSelectedPath = (ctx: CanvasRenderingContext2D) => {
+  const drawSelectedPath = useCallback((ctx: CanvasRenderingContext2D) => {
     if (selectedPath.length === 0) return;
 
     ctx.strokeStyle = "#dc2626";
@@ -129,9 +129,9 @@ export default function LadderGame() {
     // 그림자 초기화
     ctx.shadowColor = "transparent";
     ctx.shadowBlur = 0;
-  };
+  }, [selectedPath, getCanvasLeftPadding, ladderLines]);
 
-  const renderCanvas = () => {
+  const renderCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -140,7 +140,7 @@ export default function LadderGame() {
 
     drawLadder(ctx);
     drawSelectedPath(ctx);
-  };
+  }, [drawLadder, drawSelectedPath]);
 
   // Canvas 업데이트 useEffect
   useEffect(() => {
@@ -151,7 +151,7 @@ export default function LadderGame() {
     if (canvasContainer) {
       canvasContainer.style.width = `${getCanvasWidth()}px`;
     }
-  }, [ladderLines, selectedPath, playerCount, getCanvasWidth, renderCanvas]);
+  }, [renderCanvas, getCanvasWidth]);
 
   const handlePlayerCountChange = (count: number) => {
     setPlayerCount(count);
