@@ -12,7 +12,6 @@ import { Button } from "@/components/ui/button";
 import {
   TrendingUp,
   Calculator,
-  DollarSign,
   Calendar,
   PiggyBank,
 } from "lucide-react";
@@ -46,7 +45,7 @@ export default function CompoundInterestPage() {
 
     if (!P || !r || !t || !n) return;
 
-    let yearlyBreakdown = [];
+    const yearlyBreakdown = [];
     let currentAmount = P;
 
     for (let year = 1; year <= t; year++) {
