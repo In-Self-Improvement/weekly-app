@@ -26,6 +26,14 @@ export default function HomePage() {
       href: "/ladder",
       gradient: "bg-gradient-to-br from-purple-500 to-pink-600",
     },
+    {
+      id: "bmi",
+      name: "BMI 계산기",
+      description: "키와 몸무게로 체질량지수를 계산하고 건강 상태를 확인하세요",
+      icon: "📏",
+      href: "/bmi",
+      gradient: "bg-gradient-to-br from-rose-500 to-orange-600",
+    },
   ];
 
   return (
