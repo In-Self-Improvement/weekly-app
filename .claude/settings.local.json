@@ -9,7 +9,7 @@
       "WebFetch(domain:naver.com)",
       "WebFetch(domain:search.naver.com)",
       "WebFetch(domain:www.youtube.com)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev)"
     ],
     "deny": []
   }

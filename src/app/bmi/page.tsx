@@ -101,7 +101,7 @@ export default function BMIPage() {
       return;
     }
 
-    if (heightNum <= 0 || weightNum <= 0) {
+    if (isNaN(heightNum) || isNaN(weightNum) || heightNum <= 0 || weightNum <= 0) {
       setError("키와 몸무게는 0보다 큰 값을 입력해주세요.");
       return;
     }
@@ -123,7 +123,7 @@ export default function BMIPage() {
     const categoryData = getBMICategory(bmi);
     
     setResult({
-      bmi: Math.round(bmi * 10) / 10,
+      bmi: Number(bmi.toFixed(1)),
       ...categoryData
     });
   };
