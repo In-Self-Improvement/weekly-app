@@ -50,6 +50,14 @@ export default function HomePage() {
       href: "/compound-interest",
       gradient: "bg-gradient-to-br from-emerald-500 to-teal-600",
     },
+    {
+      id: "conversion",
+      name: "평수 변환기",
+      description: "평수와 제곱미터를 쉽게 변환하세요",
+      icon: "🏠",
+      href: "/conversion",
+      gradient: "bg-gradient-to-br from-orange-500 to-red-600",
+    },
   ];
 
   return (
