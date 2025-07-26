@@ -176,15 +176,6 @@ export default function ConversionPage() {
           </Button>
         </div>
 
-        {/* 홈으로 돌아가기 */}
-        <div className="text-center">
-          <Button
-            onClick={() => window.location.href = '/'}
-            className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white px-8 py-3 text-lg"
-          >
-            홈으로 돌아가기
-          </Button>
-        </div>
       </div>
     </div>
   );
