@@ -96,6 +96,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
         ></script>
         <script 
+          async 
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17402546983"
+        ></script>
+        <script src="/gtag-init.js" async></script>
+        <script 
           src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
           crossOrigin="anonymous"
           async
