@@ -99,16 +99,7 @@ export default function RootLayout({
           async 
           src="https://www.googletagmanager.com/gtag/js?id=AW-17402546983"
         ></script>
-        <script 
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-17402546983');
-            `,
-          }}
-        />
+        <script src="/gtag-init.js" async></script>
         <script 
           src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
           crossOrigin="anonymous"
