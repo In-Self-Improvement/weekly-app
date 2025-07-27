@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     template: "%s | Weekly Apps",
   },
   description:
-    "날씨 확인, 간단한 할 일 관리, 사다리타기 게임 등 다양한 유용한 앱들을 한 곳에서 만나보세요.",
+    "날씨 확인, 할 일 관리, 사다리타기, 평수 변환, BMI 계산, 나이 계산, 복리 계산 등 다양한 유용한 계산기와 유틸리티 앱들을 한 곳에서 만나보세요.",
   keywords: [
     "날씨",
     "옷차림",
@@ -29,6 +29,13 @@ export const metadata: Metadata = {
     "게임",
     "유틸리티",
     "생산성",
+    "평수",
+    "제곱미터",
+    "면적변환",
+    "계산기",
+    "BMI",
+    "나이계산",
+    "복리계산",
   ],
   authors: [{ name: "Weekly Apps" }],
   creator: "Weekly Apps",
@@ -47,7 +54,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Weekly Apps - 유용한 앱들을 한 곳에서",
     description:
-      "날씨 확인, 간단한 할 일 관리, 사다리타기 게임 등 다양한 유용한 앱들을 한 곳에서 만나보세요.",
+      "날씨 확인, 할 일 관리, 사다리타기, 평수 변환, BMI 계산, 나이 계산, 복리 계산 등 다양한 유용한 계산기와 유틸리티 앱들을 한 곳에서 만나보세요.",
     url: "/",
     siteName: "Weekly Apps",
     locale: "ko_KR",
@@ -57,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Weekly Apps - 유용한 앱들을 한 곳에서",
     description:
-      "날씨 확인, 간단한 할 일 관리, 사다리타기 게임 등 다양한 유용한 앱들을 한 곳에서 만나보세요.",
+      "날씨 확인, 할 일 관리, 사다리타기, 평수 변환, BMI 계산, 나이 계산, 복리 계산 등 다양한 유용한 계산기와 유틸리티 앱들을 한 곳에서 만나보세요.",
   },
   robots: {
     index: true,
@@ -83,6 +90,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        <script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7789818762160521"
+          crossOrigin="anonymous"
+        ></script>
         <script 
           src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
           crossOrigin="anonymous"
