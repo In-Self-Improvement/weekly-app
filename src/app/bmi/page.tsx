@@ -269,6 +269,194 @@ export default function BMIPage() {
             </div>
           </CardContent>
         </Card>
+
+        {/* 상세 설명 및 가이드 */}
+        <div className="mt-8 space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-rose-700 flex items-center justify-center gap-2">
+                📏 BMI란 무엇인가요?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">📊 체질량지수 (Body Mass Index)</h3>
+                <p className="text-gray-600 text-sm">
+                  BMI는 신장과 체중을 이용하여 지방의 양을 추정하는 비만 측정법입니다. 
+                  세계보건기구(WHO)에서 제시한 국제적 기준으로 건강상태를 평가하는 지표입니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">🧮 계산 공식</h3>
+                <div className="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                  <p className="text-center text-lg font-mono text-purple-800">
+                    BMI = 체중(kg) ÷ 신장(m)²
+                  </p>
+                  <p className="text-center text-sm text-gray-600 mt-2">
+                    예: 키 170cm, 체중 65kg → 65 ÷ 1.7² = 22.5
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-rose-700">
+                📋 BMI 분류 기준
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="space-y-3">
+                <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-blue-800">저체중</h3>
+                    <span className="text-blue-600 font-bold">18.5 미만</span>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    체중이 부족한 상태입니다. 영양 상태를 점검하고 균형 잡힌 식단과 적절한 운동이 필요합니다.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-green-50 rounded-lg border border-green-100">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-green-800">정상 체중</h3>
+                    <span className="text-green-600 font-bold">18.5 - 22.9</span>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    건강한 체중 범위입니다. 현재 상태를 유지하기 위해 규칙적인 운동과 균형 잡힌 식단을 지속하세요.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-yellow-50 rounded-lg border border-yellow-100">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-yellow-800">과체중</h3>
+                    <span className="text-yellow-600 font-bold">23.0 - 24.9</span>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    정상보다 약간 높은 상태입니다. 식단 조절과 운동량 증가를 통해 체중 관리가 필요합니다.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-orange-50 rounded-lg border border-orange-100">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-orange-800">비만 1단계</h3>
+                    <span className="text-orange-600 font-bold">25.0 - 29.9</span>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    건강에 영향을 줄 수 있는 상태입니다. 체계적인 식단 관리와 운동 계획이 필요합니다.
+                  </p>
+                </div>
+
+                <div className="p-4 bg-red-50 rounded-lg border border-red-100">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3 className="font-semibold text-red-800">고도 비만</h3>
+                    <span className="text-red-600 font-bold">30.0 이상</span>
+                  </div>
+                  <p className="text-sm text-gray-600">
+                    각종 질병의 위험이 높은 상태입니다. 전문의와 상담하여 체계적인 관리가 필요합니다.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-rose-700">
+                💡 건강한 체중 관리 방법
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">🍎 균형 잡힌 식단</h3>
+                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <li>• 규칙적인 식사 시간 유지하기</li>
+                  <li>• 다양한 영양소를 골고루 섭취하기</li>
+                  <li>• 과식하지 않고 적정량 먹기</li>
+                  <li>• 물을 충분히 마시기 (하루 1.5-2L)</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">🏃‍♂️ 규칙적인 운동</h3>
+                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <li>• 주 3-5회, 30분 이상 유산소 운동</li>
+                  <li>• 근력 운동으로 기초대사량 증가</li>
+                  <li>• 일상 활동량 늘리기 (계단 이용, 걷기)</li>
+                  <li>• 자신에게 맞는 운동 강도 선택</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">😴 충분한 휴식</h3>
+                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <li>• 하루 7-8시간 충분한 수면</li>
+                  <li>• 스트레스 관리하기</li>
+                  <li>• 규칙적인 생활 리듬 유지</li>
+                  <li>• 금연, 금주 등 건강한 생활습관</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-rose-700">
+                🎯 체중별 목표 설정
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">📉 체중 감량이 필요한 경우</h3>
+                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <li>• 주 0.5-1kg씩 천천히 감량</li>
+                  <li>• 극단적인 다이어트는 피하기</li>
+                  <li>• 칼로리 섭취량을 점진적으로 줄이기</li>
+                  <li>• 운동과 식단 조절을 병행하기</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">📈 체중 증량이 필요한 경우</h3>
+                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <li>• 건강한 방법으로 체중 늘리기</li>
+                  <li>• 단백질과 좋은 지방 섭취 늘리기</li>
+                  <li>• 근력 운동으로 근육량 증가</li>
+                  <li>• 소량씩 자주 먹기</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-rose-700">
+                ❓ 자주 묻는 질문
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. BMI만으로 건강을 판단할 수 있나요?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. BMI는 참고 지표일 뿐입니다. 근육량, 골격, 나이, 성별 등을 고려하지 않으므로 
+                  정확한 건강 상태는 전문의와 상담하시기 바랍니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. 아시아인 기준이 다른 이유는?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. 아시아인은 서구인에 비해 같은 BMI에서도 체지방률이 높고 내장지방이 많아 
+                  질병 위험도가 높습니다. 따라서 더 낮은 기준을 적용합니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. 임신 중에도 BMI를 사용할 수 있나요?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. 임신 중에는 BMI 기준이 다르며, 임신 전 체중을 기준으로 적정 체중 증가량을 
+                  산부인과 전문의와 상담하여 결정하는 것이 좋습니다.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );

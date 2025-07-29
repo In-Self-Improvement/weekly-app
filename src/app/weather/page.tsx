@@ -248,6 +248,131 @@ export default function WeatherPage() {
             )}
           </>
         )}
+
+        {/* 상세 설명 및 가이드 */}
+        <div className="mt-8 space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-blue-700 flex items-center justify-center gap-2">
+                🌤️ 날씨 앱 사용법
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">📍 위치 기반 날씨 정보</h3>
+                <p className="text-gray-600 text-sm">
+                  현재 계신 위치를 기반으로 실시간 날씨 정보를 제공합니다. 
+                  GPS를 통해 정확한 지역의 기온, 습도, 풍속을 확인할 수 있습니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">👔 맞춤형 옷차림 추천</h3>
+                <p className="text-gray-600 text-sm">
+                  기온에 따라 최적의 옷차림을 자동으로 추천해드립니다. 
+                  계절감과 체감온도를 고려한 실용적인 패션 가이드를 제공합니다.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-blue-700">
+                🌡️ 기온별 옷차림 가이드
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <div className="grid gap-3">
+                <div className="flex items-center gap-3 p-3 bg-red-50 rounded-lg border border-red-100">
+                  <span className="text-red-600 font-bold">28°C+</span>
+                  <span className="text-sm text-gray-700">반팔티, 반바지, 샌들 - 한여름 복장</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-orange-50 rounded-lg border border-orange-100">
+                  <span className="text-orange-600 font-bold">23-27°C</span>
+                  <span className="text-sm text-gray-700">얇은 긴팔, 면바지 - 초여름 복장</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-green-50 rounded-lg border border-green-100">
+                  <span className="text-green-600 font-bold">20-22°C</span>
+                  <span className="text-sm text-gray-700">긴팔티, 가디건 - 봄/가을 복장</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                  <span className="text-blue-600 font-bold">15-19°C</span>
+                  <span className="text-sm text-gray-700">맨투맨, 후드티 - 쌀쌀한 날씨</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
+                  <span className="text-purple-600 font-bold">5-14°C</span>
+                  <span className="text-sm text-gray-700">코트, 목도리, 장갑 - 겨울 복장</span>
+                </div>
+                <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg border border-gray-200">
+                  <span className="text-gray-600 font-bold">4°C 이하</span>
+                  <span className="text-sm text-gray-700">패딩, 히트텍, 방한화 - 혹한기 복장</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-blue-700">
+                💡 옷차림 팁
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">🌊 습도 고려하기</h3>
+                <p className="text-gray-600 text-sm">
+                  습도가 높은 날에는 체감온도가 더 높게 느껴집니다. 
+                  습도 70% 이상일 때는 한 단계 시원한 옷차림을 선택하세요.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">💨 바람 고려하기</h3>
+                <p className="text-gray-600 text-sm">
+                  풍속이 강할 때는 체감온도가 낮아집니다. 
+                  바람막이나 외투를 준비하여 체온을 유지하세요.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">🌅 시간대별 변화</h3>
+                <p className="text-gray-600 text-sm">
+                  하루 종일 외출할 때는 아침과 저녁의 기온차를 고려하여 
+                  벗거나 입을 수 있는 겉옷을 준비하세요.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-center text-blue-700">
+                ❓ 자주 묻는 질문
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. 위치 정보 사용이 안전한가요?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. 위치 정보는 날씨 데이터 조회에만 사용되며, 별도로 저장되지 않습니다. 
+                  브라우저의 GPS 기능을 통해 안전하게 처리됩니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. 정확도는 어느 정도인가요?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. OpenWeatherMap API를 사용하여 실시간 기상청 데이터를 제공합니다. 
+                  일반적으로 매우 높은 정확도를 보입니다.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold text-gray-800 mb-2">Q. 언제 업데이트되나요?</h3>
+                <p className="text-gray-600 text-sm">
+                  A. 새로고침 버튼을 누르면 최신 날씨 정보로 업데이트됩니다. 
+                  실시간 데이터를 제공하므로 수시로 확인하실 수 있습니다.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
