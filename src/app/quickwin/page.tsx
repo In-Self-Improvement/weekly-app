@@ -334,17 +334,23 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">🚀 즉석 성취감</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  🚀 즉석 성취감
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  5분 이내로 완료할 수 있는 간단한 할일들을 랜덤하게 제공합니다. 
-                  작은 성취를 통해 하루를 긍정적으로 시작하고 동기부여를 얻으세요.
+                  5분 이내로 완료할 수 있는 간단한 할일들을 랜덤하게 제공합니다.
+                  작은 성취를 통해 하루를 긍정적으로 시작하고 동기부여를
+                  얻으세요.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">📈 습관 형성</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  📈 습관 형성
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  매일 작은 일들을 꾸준히 완료하며 자연스럽게 좋은 습관을 만들어갑니다. 
-                  연속 달성 기록을 통해 지속적인 동기를 부여받을 수 있습니다.
+                  매일 작은 일들을 꾸준히 완료하며 자연스럽게 좋은 습관을
+                  만들어갑니다. 연속 달성 기록을 통해 지속적인 동기를 부여받을
+                  수 있습니다.
                 </p>
               </div>
             </CardContent>
@@ -436,22 +442,22 @@ export default function QuickWinPage() {
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">📊 오늘</h3>
                 <p className="text-gray-600 text-sm">
-                  오늘 하루 완료한 할일의 개수입니다. 
-                  매일 자정에 초기화되어 새로운 하루를 시작할 수 있습니다.
+                  오늘 하루 완료한 할일의 개수입니다. 매일 자정에 초기화되어
+                  새로운 하루를 시작할 수 있습니다.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">🎯 전체</h3>
                 <p className="text-gray-600 text-sm">
-                  QuickWin을 시작한 이후 총 완료한 할일의 개수입니다. 
-                  누적된 성취를 통해 자신의 발전을 확인할 수 있습니다.
+                  QuickWin을 시작한 이후 총 완료한 할일의 개수입니다. 누적된
+                  성취를 통해 자신의 발전을 확인할 수 있습니다.
                 </p>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">🔥 연속</h3>
                 <p className="text-gray-600 text-sm">
-                  연속으로 할일을 완료한 날짜입니다. 
-                  꾸준함의 지표로, 습관 형성에 큰 도움이 됩니다.
+                  연속으로 할일을 완료한 날짜입니다. 꾸준함의 지표로, 습관
+                  형성에 큰 도움이 됩니다.
                 </p>
               </div>
             </CardContent>
@@ -465,24 +471,31 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">🌅 하루 시작하기</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  🌅 하루 시작하기
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  아침에 일어나자마자 QuickWin으로 간단한 할일 하나를 완료해보세요. 
-                  작은 성취감이 하루를 긍정적으로 시작하게 도와줍니다.
+                  아침에 일어나자마자 QuickWin으로 간단한 할일 하나를
+                  완료해보세요. 작은 성취감이 하루를 긍정적으로 시작하게
+                  도와줍니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">⏰ 짬짬이 활용</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  ⏰ 짬짬이 활용
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  잠깐의 여유 시간이 생겼을 때 활용해보세요. 
-                  대기 시간, 휴식 시간 등을 생산적으로 보낼 수 있습니다.
+                  잠깐의 여유 시간이 생겼을 때 활용해보세요. 대기 시간, 휴식
+                  시간 등을 생산적으로 보낼 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">🎯 목표 설정</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  🎯 목표 설정
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  하루에 몇 개의 할일을 완료할지 목표를 정해보세요. 
-                  작은 목표부터 시작해서 점차 늘려가는 것이 좋습니다.
+                  하루에 몇 개의 할일을 완료할지 목표를 정해보세요. 작은
+                  목표부터 시작해서 점차 늘려가는 것이 좋습니다.
                 </p>
               </div>
             </CardContent>
@@ -496,24 +509,30 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Q. 할일이 마음에 안 들어요</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  Q. 할일이 마음에 안 들어요
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  A. '다른 할일 받기' 버튼을 눌러 새로운 할일을 받을 수 있습니다. 
-                  자신에게 맞는 할일을 찾아보세요.
+                  A. &apos;다른 할일 받기&apos; 버튼을 눌러 새로운 할일을 받을
+                  수 있습니다. 자신에게 맞는 할일을 찾아보세요.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Q. 데이터가 사라져요</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  Q. 데이터가 사라져요
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  A. 브라우저의 로컬 저장소에 데이터가 저장됩니다. 
-                  브라우저 데이터를 삭제하거나 다른 기기에서는 초기화됩니다.
+                  A. 브라우저의 로컬 저장소에 데이터가 저장됩니다. 브라우저
+                  데이터를 삭제하거나 다른 기기에서는 초기화됩니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">Q. 얼마나 자주 해야 하나요?</h3>
+                <h3 className="font-semibold text-gray-800 mb-2">
+                  Q. 얼마나 자주 해야 하나요?
+                </h3>
                 <p className="text-gray-600 text-sm">
-                  A. 본인의 페이스에 맞춰 사용하세요. 
-                  매일 하나씩이라도 꾸준히 하는 것이 가장 중요합니다.
+                  A. 본인의 페이스에 맞춰 사용하세요. 매일 하나씩이라도 꾸준히
+                  하는 것이 가장 중요합니다.
                 </p>
               </div>
             </CardContent>
