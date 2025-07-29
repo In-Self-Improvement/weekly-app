@@ -58,6 +58,14 @@ export default function HomePage() {
       href: "/conversion",
       gradient: "bg-gradient-to-br from-orange-500 to-red-600",
     },
+    {
+      id: "percent",
+      name: "퍼센트 계산기",
+      description: "다양한 퍼센트 계산을 간편하게 수행하세요",
+      icon: "📊",
+      href: "/percent",
+      gradient: "bg-gradient-to-br from-slate-700 to-black",
+    },
   ];
 
   return (
