@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import HomeNavigation from "@/components/HomeNavigation";
 
@@ -89,26 +90,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <head>
-        <script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7789818762160521"
-          crossOrigin="anonymous"
-        ></script>
-        <script 
-          async 
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17402546983"
-        ></script>
-        <script src="/gtag-init.js" async></script>
-        <script 
-          src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js" 
-          crossOrigin="anonymous"
-          async
-        ></script>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Google AdSense */}
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7789818762160521"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17402546983"
+          strategy="afterInteractive"
+        />
+
+        {/* Google Analytics 초기화 */}
+        <Script src="/gtag-init.js" strategy="afterInteractive" />
+
+        {/* Emoji 라이브러리 */}
+        <Script
+          src="//cdn.jsdelivr.net/gh/realityripple/emoji/remoji.min.js"
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        />
+
         {children}
         <HomeNavigation />
       </body>
