@@ -74,6 +74,14 @@ export default function HomePage() {
       href: "/vat-calculator",
       gradient: "bg-gradient-to-br from-gray-800 to-black",
     },
+    {
+      id: "dday",
+      name: "디데이 계산기",
+      description: "중요한 날까지 남은 시간을 계산하고 계획을 세워보세요",
+      icon: "📅",
+      href: "/dday",
+      gradient: "bg-gradient-to-br from-gray-800 to-black",
+    },
   ];
 
   return (
