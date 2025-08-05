@@ -66,6 +66,14 @@ export default function HomePage() {
       href: "/percent",
       gradient: "bg-gradient-to-br from-slate-700 to-black",
     },
+    {
+      id: "vat-calculator",
+      name: "부가세 계산기",
+      description: "공급가액과 부가세 포함 금액을 정확하게 계산하세요",
+      icon: "🧮",
+      href: "/vat-calculator",
+      gradient: "bg-gradient-to-br from-gray-800 to-black",
+    },
   ];
 
   return (
