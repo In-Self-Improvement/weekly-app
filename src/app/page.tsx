@@ -82,6 +82,14 @@ export default function HomePage() {
       href: "/dday",
       gradient: "bg-gradient-to-br from-gray-800 to-black",
     },
+    {
+      id: "gpa",
+      name: "학점 계산기",
+      description: "과목별 성적과 학점으로 평균 평점(GPA)을 계산하세요",
+      icon: "🎓",
+      href: "/gpa",
+      gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
+    },
   ];
 
   return (
