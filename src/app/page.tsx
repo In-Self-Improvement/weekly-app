@@ -90,6 +90,14 @@ export default function HomePage() {
       href: "/gpa",
       gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
     },
+    {
+      id: "fraction-calculator",
+      name: "분수 계산기",
+      description: "분수의 사칙연산을 쉽게 계산하고 기약분수로 변환하세요",
+      icon: "➗",
+      href: "/fraction-calculator",
+      gradient: "bg-gradient-to-br from-slate-700 to-black",
+    },
   ];
 
   return (
