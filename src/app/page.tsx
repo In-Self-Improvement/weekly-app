@@ -98,6 +98,14 @@ export default function HomePage() {
       href: "/fraction-calculator",
       gradient: "bg-gradient-to-br from-slate-700 to-black",
     },
+    {
+      id: "interest-calculator",
+      name: "이자 계산기",
+      description: "단리와 복리 이자를 계산하여 투자 계획을 세워보세요",
+      icon: "💰",
+      href: "/interest-calculator",
+      gradient: "bg-gradient-to-br from-yellow-600 to-black",
+    },
   ];
 
   return (
