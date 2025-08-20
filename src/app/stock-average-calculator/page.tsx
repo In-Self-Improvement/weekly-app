@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Card,
   CardContent,
@@ -25,7 +25,7 @@ export default function StockAverageCalculator() {
   } | null>(null);
 
   // 자동 계산 함수
-  const calculateAverage = () => {
+  const calculateAverage = useCallback(() => {
     const price1 = parseFloat(firstPrice);
     const quantity1 = parseFloat(firstQuantity);
     const price2 = parseFloat(secondPrice);
@@ -72,12 +72,12 @@ export default function StockAverageCalculator() {
       profitLossPercentage,
       currentPrice: currentPriceValue,
     });
-  };
+  }, [firstPrice, firstQuantity, secondPrice, secondQuantity, currentPrice]);
 
   // 입력값이 변경될 때마다 자동 계산
   useEffect(() => {
     calculateAverage();
-  }, [firstPrice, firstQuantity, secondPrice, secondQuantity, currentPrice]);
+  }, [calculateAverage]);
 
   const reset = () => {
     setFirstPrice("");
