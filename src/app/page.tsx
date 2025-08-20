@@ -106,6 +106,14 @@ export default function HomePage() {
       href: "/interest-calculator",
       gradient: "bg-gradient-to-br from-yellow-600 to-black",
     },
+    {
+      id: "stock-average-calculator",
+      name: "물타기 계산기",
+      description: "주식/코인 평균 매수가를 계산하고 수익률을 확인하세요",
+      icon: "📈",
+      href: "/stock-average-calculator",
+      gradient: "bg-gradient-to-br from-blue-600 to-black",
+    },
   ];
 
   return (
