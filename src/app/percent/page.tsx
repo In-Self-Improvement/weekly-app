@@ -39,15 +39,15 @@ export default function PercentPage() {
       name: "증감률 계산",
       description: "이전값과 이후값 비교",
       icon: "📈",
-      example: "100 → 110 = 10% 증가"
+      example: "100 → 110 = 10% 증가",
     },
     {
       id: "percentage_of",
       name: "비율 계산",
       description: "A값의 B%는 얼마?",
       icon: "🧮",
-      example: "100의 10% = 10"
-    }
+      example: "100의 10% = 10",
+    },
   ];
 
   const getPlaceholders = (type: string) => {
@@ -104,18 +104,22 @@ export default function PercentPage() {
           setError("이전값은 0이 될 수 없습니다.");
           return;
         }
-        
+
         if (num2 > num1) {
           // 증가
           resultValue = ((num2 - num1) / num1) * 100;
           formatted = `${resultValue.toFixed(1)}% 증가`;
-          explanation = `${num1.toLocaleString()}에서 ${num2.toLocaleString()}로 ${resultValue.toFixed(1)}% 증가했습니다.`;
+          explanation = `${num1.toLocaleString()}에서 ${num2.toLocaleString()}로 ${resultValue.toFixed(
+            1
+          )}% 증가했습니다.`;
           isIncrease = true;
         } else if (num2 < num1) {
           // 감소
           resultValue = ((num1 - num2) / num1) * 100;
           formatted = `${resultValue.toFixed(1)}% 감소`;
-          explanation = `${num1.toLocaleString()}에서 ${num2.toLocaleString()}로 ${resultValue.toFixed(1)}% 감소했습니다.`;
+          explanation = `${num1.toLocaleString()}에서 ${num2.toLocaleString()}로 ${resultValue.toFixed(
+            1
+          )}% 감소했습니다.`;
           isIncrease = false;
         } else {
           // 변화 없음
@@ -163,10 +167,10 @@ export default function PercentPage() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4">
       <div className="max-w-md mx-auto py-16">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">퍼센트 계산기</h1>
-          <p className="text-gray-600">
-            간단한 퍼센트 계산을 도와드립니다
-          </p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            퍼센트 계산기
+          </h1>
+          <p className="text-gray-600">간단한 퍼센트 계산을 도와드립니다</p>
         </div>
 
         {/* 계산 타입 선택 */}
@@ -197,8 +201,12 @@ export default function PercentPage() {
                         <span className="text-xl">{type.icon}</span>
                         <span className="font-medium">{type.name}</span>
                       </div>
-                      <div className="text-sm text-gray-600">{type.description}</div>
-                      <div className="text-xs text-gray-500 mt-1">{type.example}</div>
+                      <div className="text-sm text-gray-600">
+                        {type.description}
+                      </div>
+                      <div className="text-xs text-gray-500 mt-1">
+                        {type.example}
+                      </div>
                     </div>
                   </div>
                 </button>
@@ -210,7 +218,9 @@ export default function PercentPage() {
         {/* 입력 폼 */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-center text-purple-700">📝 값 입력</CardTitle>
+            <CardTitle className="text-center text-purple-700">
+              📝 값 입력
+            </CardTitle>
             <CardDescription className="text-center">
               {calculationTypes.find((t) => t.id === selectedType)?.description}
             </CardDescription>
@@ -281,28 +291,37 @@ export default function PercentPage() {
 
         {/* 결과 표시 */}
         {result && (
-          <Card className={`mb-6 ${
-            result.type === "change_rate"
-              ? result.isIncrease === true
-                ? "bg-green-50 border-green-200"
-                : result.isIncrease === false
-                ? "bg-red-50 border-red-200"
-                : "bg-gray-50 border-gray-200"
-              : "bg-blue-50 border-blue-200"
-          }`}>
+          <Card
+            className={`mb-6 ${
+              result.type === "change_rate"
+                ? result.isIncrease === true
+                  ? "bg-green-50 border-green-200"
+                  : result.isIncrease === false
+                  ? "bg-red-50 border-red-200"
+                  : "bg-gray-50 border-gray-200"
+                : "bg-blue-50 border-blue-200"
+            }`}
+          >
             <CardHeader className="text-center">
-              <CardTitle className={`text-2xl ${
-                result.type === "change_rate"
+              <CardTitle
+                className={`text-2xl ${
+                  result.type === "change_rate"
+                    ? result.isIncrease === true
+                      ? "text-green-700"
+                      : result.isIncrease === false
+                      ? "text-red-700"
+                      : "text-gray-700"
+                    : "text-blue-700"
+                }`}
+              >
+                {result.type === "change_rate"
                   ? result.isIncrease === true
-                    ? "text-green-700"
+                    ? "📈"
                     : result.isIncrease === false
-                    ? "text-red-700"
-                    : "text-gray-700"
-                  : "text-blue-700"
-              }`}>
-                {result.type === "change_rate" 
-                  ? (result.isIncrease === true ? "📈" : result.isIncrease === false ? "📉" : "➡️") 
-                  : "🧮"} 계산 결과
+                    ? "📉"
+                    : "➡️"
+                  : "🧮"}{" "}
+                계산 결과
               </CardTitle>
               <CardDescription className="text-lg font-semibold">
                 {result.formatted}
@@ -325,10 +344,12 @@ export default function PercentPage() {
               <p className="mb-2">💡 사용 팁</p>
               <div className="space-y-2 text-xs">
                 <div className="p-2 bg-purple-50 rounded-lg border border-purple-100">
-                  <span className="font-medium">증감률</span>: 주가, 매출 등의 변화율 계산
+                  <span className="font-medium">증감률</span>: 주가, 매출 등의
+                  변화율 계산
                 </div>
                 <div className="p-2 bg-pink-50 rounded-lg border border-pink-100">
-                  <span className="font-medium">비율</span>: 할인, 수수료 등의 계산
+                  <span className="font-medium">비율</span>: 할인, 수수료 등의
+                  계산
                 </div>
               </div>
             </div>
