@@ -44,9 +44,9 @@ export default function PercentPage() {
     {
       id: "percentage_of",
       name: "비율 계산",
-      description: "A값의 B%는 얼마?",
+      description: "A는 B의 몇%?",
       icon: "🧮",
-      example: "100의 10% = 10",
+      example: "100 중 10은 10%",
     },
   ];
 
@@ -63,8 +63,8 @@ export default function PercentPage() {
         return {
           placeholder1: "100",
           placeholder2: "10",
-          label1: "전체값 (A)",
-          label2: "퍼센트 (B%)",
+          label1: "전체값",
+          label2: "부분값",
         };
       default:
         return {
@@ -131,13 +131,13 @@ export default function PercentPage() {
         break;
 
       case "percentage_of":
-        if (num2 < 0) {
-          setError("퍼센트는 0 이상의 값을 입력해주세요.");
+        if (num1 === 0) {
+          setError("전체값은 0이 될 수 없습니다.");
           return;
         }
-        resultValue = (num1 * num2) / 100;
-        formatted = resultValue.toLocaleString();
-        explanation = `${num1.toLocaleString()}의 ${num2}%는 ${formatted}입니다.`;
+        resultValue = (num2 / num1) * 100;
+        formatted = `${resultValue.toFixed(1)}%`;
+        explanation = `${num2.toLocaleString()}은(는) ${num1.toLocaleString()}의 ${formatted}입니다.`;
         break;
 
       default:
@@ -348,8 +348,8 @@ export default function PercentPage() {
                   변화율 계산
                 </div>
                 <div className="p-2 bg-pink-50 rounded-lg border border-pink-100">
-                  <span className="font-medium">비율</span>: 할인, 수수료 등의
-                  계산
+                  <span className="font-medium">비율</span>: 점수, 달성률 등의
+                  비율 계산
                 </div>
               </div>
             </div>
