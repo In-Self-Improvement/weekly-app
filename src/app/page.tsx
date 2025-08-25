@@ -114,6 +114,14 @@ export default function HomePage() {
       href: "/stock-average-calculator",
       gradient: "bg-gradient-to-br from-blue-600 to-black",
     },
+    {
+      id: "character-counter",
+      name: "글자수 세기",
+      description: "텍스트의 글자수, 단어수, 문단수를 정확하게 계산하세요",
+      icon: "📝",
+      href: "/character-counter",
+      gradient: "bg-gradient-to-br from-gray-800 to-black",
+    },
   ];
 
   return (
