@@ -122,6 +122,14 @@ export default function HomePage() {
       href: "/character-counter",
       gradient: "bg-gradient-to-br from-gray-800 to-black",
     },
+    {
+      id: "case-converter",
+      name: "영어 대소문자 변환기",
+      description: "영어 텍스트의 대소문자를 간편하게 변환하세요",
+      icon: "🔤",
+      href: "/case-converter",
+      gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
+    },
   ];
 
   return (
