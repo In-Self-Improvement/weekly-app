@@ -54,20 +54,22 @@ export default function CharacterCounterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-4xl mx-auto pt-8">
         {/* 헤더 */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-white mb-3">📝 글자수 세기</h1>
-          <p className="text-gray-300 text-lg">
+          <h1 className="text-4xl font-bold text-foreground mb-3">
+            📝 글자수 세기
+          </h1>
+          <p className="text-muted-foreground text-lg">
             텍스트의 글자수, 단어수, 문단수를 정확하게 계산하세요
           </p>
         </div>
 
         {/* 메인 입력 영역 */}
-        <Card className="mb-6 bg-gray-800 border-gray-700">
+        <Card className="mb-6 ">
           <CardHeader>
-            <CardTitle className="text-center text-white text-xl">
+            <CardTitle className="text-center text-foreground text-xl">
               ✏️ 텍스트 입력
             </CardTitle>
           </CardHeader>
@@ -82,22 +84,19 @@ export default function CharacterCounterPage() {
 글자수 계산기입니다.
 
 여러 줄과 문단도 정확하게 계산됩니다."
-              className="w-full h-64 px-4 py-3 bg-gray-900 text-white border border-gray-600 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base leading-relaxed"
+              className="w-full h-64 px-4 py-3 bg-gray-900 text-foreground border border-gray-600 rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base leading-relaxed"
               style={{ fontFamily: "monospace" }}
             />
 
             <div className="flex gap-3 justify-center flex-wrap">
-              <Button
-                onClick={calculateCount}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
-              >
+              <Button onClick={calculateCount} className="px-8 py-3">
                 📊 글자수 계산하기
               </Button>
 
               <Button
                 onClick={clearText}
                 variant="outline"
-                className="px-6 py-3 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white transition-colors duration-300"
+                className="px-6 py-3 transition-colors duration-300"
               >
                 🗑️ 초기화
               </Button>
@@ -107,9 +106,11 @@ export default function CharacterCounterPage() {
 
         {/* 결과 영역 */}
         {result && (
-          <Card className="mb-6 bg-gray-800 border-gray-700">
+          <Card className="mb-6 ">
             <CardHeader>
-              <CardTitle className="text-white text-xl">📈 계산 결과</CardTitle>
+              <CardTitle className="text-foreground text-xl">
+                📈 계산 결과
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -157,7 +158,7 @@ export default function CharacterCounterPage() {
                   <div className="text-2xl font-bold text-red-400">
                     {result.manuscriptPages.toLocaleString()}매
                   </div>
-                  <div className="text-gray-500 text-xs mt-1">
+                  <div className="text-muted-foreground text-xs mt-1">
                     * 공백 제외 글자수 ÷ 400으로 계산
                   </div>
                 </div>
@@ -167,11 +168,13 @@ export default function CharacterCounterPage() {
         )}
 
         {/* 사용 방법 */}
-        <Card className="mb-6 bg-gray-800 border-gray-700">
+        <Card className="mb-6 ">
           <CardHeader>
-            <CardTitle className="text-white text-xl">💡 사용 방법</CardTitle>
+            <CardTitle className="text-foreground text-xl">
+              💡 사용 방법
+            </CardTitle>
           </CardHeader>
-          <CardContent className="text-gray-300 space-y-3">
+          <CardContent className="text-muted-foreground space-y-3">
             <div className="flex items-start gap-3">
               <span className="text-blue-400 font-bold">1.</span>
               <span>
@@ -193,13 +196,13 @@ export default function CharacterCounterPage() {
         </Card>
 
         {/* 기능 설명 */}
-        <Card className="bg-gray-800 border-gray-700">
+        <Card className="">
           <CardHeader>
-            <CardTitle className="text-white text-xl">
+            <CardTitle className="text-foreground text-xl">
               🔍 계산 항목 설명
             </CardTitle>
           </CardHeader>
-          <CardContent className="text-gray-300 space-y-4">
+          <CardContent className="text-muted-foreground space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-3">
                 <div>

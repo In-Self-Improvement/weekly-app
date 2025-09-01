@@ -188,14 +188,18 @@ export default function QuickWinPage() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 p-4">
       <div className="max-w-md mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">QuickWin 🎯</h1>
-          <p className="text-gray-600">간단한 할일로 성취감을 느껴보세요</p>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            QuickWin 🎯
+          </h1>
+          <p className="text-muted-foreground">
+            간단한 할일로 성취감을 느껴보세요
+          </p>
         </div>
 
         {/* 성취 통계 */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-center text-lg text-gray-800 font-bold">
+            <CardTitle className="text-center text-lg text-foreground font-bold">
               오늘의 성취
             </CardTitle>
           </CardHeader>
@@ -205,19 +209,19 @@ export default function QuickWinPage() {
                 <div className="text-2xl font-bold text-blue-700">
                   {achievement.todayCompleted}
                 </div>
-                <div className="text-sm text-gray-600">오늘</div>
+                <div className="text-sm text-muted-foreground">오늘</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-green-700">
                   {achievement.totalCompleted}
                 </div>
-                <div className="text-sm text-gray-600">전체</div>
+                <div className="text-sm text-muted-foreground">전체</div>
               </div>
               <div>
                 <div className="text-2xl font-bold text-orange-700">
                   {achievement.streak}
                 </div>
-                <div className="text-sm text-gray-600">연속</div>
+                <div className="text-sm text-muted-foreground">연속</div>
               </div>
             </div>
           </CardContent>
@@ -227,17 +231,17 @@ export default function QuickWinPage() {
         {!currentTask ? (
           <Card className="mb-4">
             <CardHeader className="text-center">
-              <CardTitle className="text-gray-800 font-bold">
+              <CardTitle className="text-foreground font-bold">
                 준비되셨나요?
               </CardTitle>
-              <CardDescription className="text-gray-600">
+              <CardDescription className="text-muted-foreground">
                 오늘 뭐 할지 모르겠다면 여기서 시작해보세요
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
               <Button
                 onClick={getRandomTask}
-                className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white"
+                className="w-full h-16 text-lg font-semibold"
               >
                 <span className="text-2xl mr-2">🎲</span>
                 할일 받기
@@ -265,7 +269,7 @@ export default function QuickWinPage() {
                 <div className="space-y-4">
                   <Button
                     onClick={completeTask}
-                    className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white"
+                    className="w-full h-16 text-lg font-semibold"
                   >
                     <span className="text-2xl mr-2">✅</span>
                     완료했어요!
@@ -289,15 +293,12 @@ export default function QuickWinPage() {
                     <div className="text-xl font-bold text-green-600 mb-2">
                       멋져요! 완료했어요!
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-muted-foreground">
                       오늘 {achievement.todayCompleted}번째 성취를 달성했어요
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Button
-                      onClick={getRandomTask}
-                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
-                    >
+                    <Button onClick={getRandomTask} className="w-full">
                       또 다른 할일 받기
                     </Button>
                     <Button
@@ -315,7 +316,7 @@ export default function QuickWinPage() {
         )}
 
         {/* 힌트 카드 */}
-        <Card className="bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-300">
+        <Card>
           <CardContent className="text-center py-4">
             <div className="text-yellow-800 text-sm">
               💡 <strong>Tip:</strong> 작은 할일부터 시작해서 하루를 활기차게
@@ -334,20 +335,20 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🚀 즉석 성취감
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   5분 이내로 완료할 수 있는 간단한 할일들을 랜덤하게 제공합니다.
                   작은 성취를 통해 하루를 긍정적으로 시작하고 동기부여를
                   얻으세요.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   📈 습관 형성
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   매일 작은 일들을 꾸준히 완료하며 자연스럽게 좋은 습관을
                   만들어갑니다. 연속 달성 기록을 통해 지속적인 동기를 부여받을
                   수 있습니다.
@@ -367,12 +368,12 @@ export default function QuickWinPage() {
                 <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🏠</span>
-                    <h3 className="font-semibold text-gray-800">집안일</h3>
+                    <h3 className="font-semibold text-foreground">집안일</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     집 정리, 청소, 환기 등 생활 환경을 개선하는 간단한 일들
                   </p>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     예: 물 한 컵 마시기, 책상 정리하기, 쓰레기통 비우기
                   </div>
                 </div>
@@ -380,12 +381,12 @@ export default function QuickWinPage() {
                 <div className="p-4 bg-green-50 rounded-lg border border-green-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">💪</span>
-                    <h3 className="font-semibold text-gray-800">건강</h3>
+                    <h3 className="font-semibold text-foreground">건강</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     몸과 마음의 건강을 위한 간단한 운동과 휴식 활동
                   </p>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     예: 1분 스트레칭, 심호흡 10회, 목과 어깨 돌리기
                   </div>
                 </div>
@@ -393,12 +394,12 @@ export default function QuickWinPage() {
                 <div className="p-4 bg-purple-50 rounded-lg border border-purple-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🧠</span>
-                    <h3 className="font-semibold text-gray-800">학습</h3>
+                    <h3 className="font-semibold text-foreground">학습</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     지식 습득과 정보 정리를 위한 짧고 유익한 활동들
                   </p>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     예: 영단어 5개 찾기, 뉴스 읽기, 메모 정리하기
                   </div>
                 </div>
@@ -406,12 +407,12 @@ export default function QuickWinPage() {
                 <div className="p-4 bg-cyan-50 rounded-lg border border-cyan-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">📱</span>
-                    <h3 className="font-semibold text-gray-800">디지털</h3>
+                    <h3 className="font-semibold text-foreground">디지털</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     디지털 기기와 데이터를 정리하고 관리하는 활동
                   </p>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     예: 사진 정리하기, 알림 정리하기, 불필요한 앱 삭제
                   </div>
                 </div>
@@ -419,12 +420,12 @@ export default function QuickWinPage() {
                 <div className="p-4 bg-orange-50 rounded-lg border border-orange-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🎨</span>
-                    <h3 className="font-semibold text-gray-800">창의</h3>
+                    <h3 className="font-semibold text-foreground">창의</h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     창의성과 감성을 기르는 표현 활동과 소통
                   </p>
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-muted-foreground">
                     예: 낙서하기, 감사 인사 보내기, 아이디어 적기
                   </div>
                 </div>
@@ -440,22 +441,22 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">📊 오늘</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="font-semibold text-foreground mb-2">📊 오늘</h3>
+                <p className="text-muted-foreground text-sm">
                   오늘 하루 완료한 할일의 개수입니다. 매일 자정에 초기화되어
                   새로운 하루를 시작할 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">🎯 전체</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="font-semibold text-foreground mb-2">🎯 전체</h3>
+                <p className="text-muted-foreground text-sm">
                   QuickWin을 시작한 이후 총 완료한 할일의 개수입니다. 누적된
                   성취를 통해 자신의 발전을 확인할 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">🔥 연속</h3>
-                <p className="text-gray-600 text-sm">
+                <h3 className="font-semibold text-foreground mb-2">🔥 연속</h3>
+                <p className="text-muted-foreground text-sm">
                   연속으로 할일을 완료한 날짜입니다. 꾸준함의 지표로, 습관
                   형성에 큰 도움이 됩니다.
                 </p>
@@ -471,29 +472,29 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🌅 하루 시작하기
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   아침에 일어나자마자 QuickWin으로 간단한 할일 하나를
                   완료해보세요. 작은 성취감이 하루를 긍정적으로 시작하게
                   도와줍니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   ⏰ 짬짬이 활용
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   잠깐의 여유 시간이 생겼을 때 활용해보세요. 대기 시간, 휴식
                   시간 등을 생산적으로 보낼 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🎯 목표 설정
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   하루에 몇 개의 할일을 완료할지 목표를 정해보세요. 작은
                   목표부터 시작해서 점차 늘려가는 것이 좋습니다.
                 </p>
@@ -509,28 +510,28 @@ export default function QuickWinPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 할일이 마음에 안 들어요
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. &apos;다른 할일 받기&apos; 버튼을 눌러 새로운 할일을 받을
                   수 있습니다. 자신에게 맞는 할일을 찾아보세요.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 데이터가 사라져요
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 브라우저의 로컬 저장소에 데이터가 저장됩니다. 브라우저
                   데이터를 삭제하거나 다른 기기에서는 초기화됩니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 얼마나 자주 해야 하나요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 본인의 페이스에 맞춰 사용하세요. 매일 하나씩이라도 꾸준히
                   하는 것이 가장 중요합니다.
                 </p>

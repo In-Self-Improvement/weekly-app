@@ -164,19 +164,21 @@ export default function PercentPage() {
   const placeholders = getPlaceholders(selectedType);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-md mx-auto py-16">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             퍼센트 계산기
           </h1>
-          <p className="text-gray-600">간단한 퍼센트 계산을 도와드립니다</p>
+          <p className="text-muted-foreground">
+            간단한 퍼센트 계산을 도와드립니다
+          </p>
         </div>
 
         {/* 계산 타입 선택 */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-center text-purple-700">
+            <CardTitle className="text-center text-primary">
               🧮 계산 유형 선택
             </CardTitle>
           </CardHeader>
@@ -191,8 +193,8 @@ export default function PercentPage() {
                   }}
                   className={`p-4 rounded-lg border transition-all duration-200 ${
                     selectedType === type.id
-                      ? "bg-purple-100 border-purple-300 text-purple-700"
-                      : "bg-white border-gray-200 text-gray-700 hover:bg-purple-50"
+                      ? "bg-secondary border-secondary text-primary"
+                      : "bg-card"
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -204,7 +206,7 @@ export default function PercentPage() {
                       <div className="text-sm text-gray-600">
                         {type.description}
                       </div>
-                      <div className="text-xs text-gray-500 mt-1">
+                      <div className="text-xs text-muted-foreground mt-1">
                         {type.example}
                       </div>
                     </div>
@@ -218,7 +220,7 @@ export default function PercentPage() {
         {/* 입력 폼 */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-center text-purple-700">
+            <CardTitle className="text-center text-primary">
               📝 값 입력
             </CardTitle>
             <CardDescription className="text-center">
@@ -263,7 +265,7 @@ export default function PercentPage() {
             </div>
 
             {error && (
-              <div className="text-red-600 text-sm text-center p-3 bg-red-50 rounded-lg border border-red-200">
+              <div className="text-destructive text-sm text-center p-3 bg-destructive/10 rounded-lg border border-destructive/20">
                 {error}
               </div>
             )}
@@ -271,7 +273,7 @@ export default function PercentPage() {
             <div className="flex gap-2">
               <Button
                 onClick={calculatePercent}
-                className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="flex-1 h-12 text-lg font-semibold"
               >
                 계산하기
               </Button>
@@ -298,7 +300,7 @@ export default function PercentPage() {
                   ? "bg-green-50 border-green-200"
                   : result.isIncrease === false
                   ? "bg-red-50 border-red-200"
-                  : "bg-gray-50 border-gray-200"
+                  : "bg-muted border-border"
                 : "bg-blue-50 border-blue-200"
             }`}
           >
@@ -328,7 +330,7 @@ export default function PercentPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="p-4 bg-white/70 rounded-lg border border-gray-200">
+              <div className="p-4 bg-white/70 rounded-lg border border-border">
                 <p className="text-gray-700 text-center">
                   {result.explanation}
                 </p>

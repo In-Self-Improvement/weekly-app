@@ -115,7 +115,7 @@ export default function DdayPage() {
       return {
         text: `D+${Math.abs(daysLeft)}`,
         color: "text-gray-600",
-        bgColor: "bg-gray-50 border-gray-200",
+        bgColor: "bg-muted border-border",
       };
     } else {
       const color =
@@ -202,7 +202,7 @@ export default function DdayPage() {
                 type="checkbox"
                 checked={useStartDate}
                 onChange={(e) => setUseStartDate(e.target.checked)}
-                className="rounded border-gray-600 bg-gray-700 text-gray-500 focus:ring-gray-500"
+                className="rounded border-gray-600 bg-gray-700 text-muted-foreground focus:ring-gray-500"
               />
               <label htmlFor="useStartDate" className="text-sm text-gray-300">
                 진행도 표시 (시작일 설정)
@@ -236,7 +236,7 @@ export default function DdayPage() {
             <div className="flex gap-2">
               <Button
                 onClick={calculateDday}
-                className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-gray-700 to-black hover:from-gray-600 hover:to-gray-900 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white border border-gray-600"
+                className="flex-1 h-12 text-lg font-semibold"
               >
                 디데이 계산하기
               </Button>
@@ -245,7 +245,7 @@ export default function DdayPage() {
                 <Button
                   onClick={resetForm}
                   variant="outline"
-                  className="h-12 px-4 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
+                  className="h-12 px-4"
                 >
                   초기화
                 </Button>
@@ -280,11 +280,10 @@ export default function DdayPage() {
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-2">
                     <div
-                      className="bg-gradient-to-r from-gray-500 to-gray-300 h-2 rounded-full transition-all duration-500"
                       style={{ width: `${Math.min(100, result.percentage)}%` }}
                     ></div>
                   </div>
-                  <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
                     <span>{formatDate(result.startDate)}</span>
                     <span>{formatDate(result.targetDate)}</span>
                   </div>
@@ -354,7 +353,7 @@ export default function DdayPage() {
           <CardContent className="pt-6">
             <div className="text-center text-sm text-gray-400">
               <p className="mb-2">📱 디데이 활용 팁</p>
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-muted-foreground">
                 중요한 날들을 미리 체크하고 계획적으로 준비하세요. 시작일을
                 설정하면 현재까지의 진행 상황도 확인할 수 있어요!
               </p>
@@ -426,7 +425,7 @@ export default function DdayPage() {
                 <span className="text-gray-300 text-sm">파란색: 31일 이상</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-gray-500 rounded"></div>
+                <div className="w-4 h-4 bg-muted0 rounded"></div>
                 <span className="text-gray-300 text-sm">
                   회색색: 지난 날짜 (D+)
                 </span>

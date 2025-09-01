@@ -216,20 +216,20 @@ export default function GPAPage() {
   const gpaCategory = result ? getGPACategory(result.totalGPA) : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-2xl mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             학점 계산기 (GPA Calculator)
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             과목별 성적과 학점을 입력하여 평균 평점(GPA)을 계산하세요
           </p>
         </div>
 
         <Card className="mb-4">
           <CardHeader>
-            <CardTitle className="text-center text-indigo-700">
+            <CardTitle className="text-center text-primary">
               📚 과목 정보 입력
             </CardTitle>
             <CardDescription className="text-center">
@@ -240,12 +240,10 @@ export default function GPAPage() {
             {subjects.map((subject, index) => (
               <div
                 key={subject.id}
-                className="p-4 border border-gray-200 rounded-lg bg-gray-50"
+                className="p-4 border border-border rounded-lg bg-muted"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="font-medium text-gray-700">
-                    과목 {index + 1}
-                  </h3>
+                  <h3 className="font-medium text-primary">과목 {index + 1}</h3>
                   {subjects.length > 1 && (
                     <Button
                       onClick={() => removeSubject(subject.id)}
@@ -260,7 +258,7 @@ export default function GPAPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-primary mb-1">
                       과목명
                     </label>
                     <input
@@ -270,12 +268,12 @@ export default function GPAPage() {
                       onChange={(e) =>
                         updateSubject(subject.id, "name", e.target.value)
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-ring focus:border-transparent"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-primary mb-1">
                       학점
                     </label>
                     <input
@@ -290,12 +288,12 @@ export default function GPAPage() {
                           parseInt(e.target.value) || 1
                         )
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-center"
+                      className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-ring focus:border-transparent text-center"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                    <label className="block text-sm font-medium text-primary mb-1">
                       성적
                     </label>
                     <select
@@ -303,7 +301,7 @@ export default function GPAPage() {
                       onChange={(e) =>
                         updateSubject(subject.id, "grade", e.target.value)
                       }
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-input rounded-lg focus:outline-none focus:ring-ring focus:border-transparent"
                     >
                       {gradeOptions.map((option) => (
                         <option key={option.grade} value={option.grade}>
@@ -317,17 +315,13 @@ export default function GPAPage() {
             ))}
 
             <div className="flex justify-center">
-              <Button
-                onClick={addSubject}
-                variant="outline"
-                className="border-indigo-300 text-indigo-600 hover:bg-indigo-50"
-              >
+              <Button onClick={addSubject} variant="outline">
                 + 과목 추가
               </Button>
             </div>
 
             {error && (
-              <div className="text-red-600 text-sm text-center p-2 bg-red-50 rounded-lg border border-red-200">
+              <div className="text-destructive text-sm text-center p-2 bg-destructive/10 rounded-lg border border-destructive/20">
                 {error}
               </div>
             )}
@@ -335,7 +329,7 @@ export default function GPAPage() {
             <div className="flex gap-2">
               <Button
                 onClick={calculateGPA}
-                className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="flex-1 h-12 text-lg font-semibold"
               >
                 GPA 계산하기
               </Button>
@@ -364,28 +358,28 @@ export default function GPAPage() {
               >
                 {gpaCategory.category}
               </CardDescription>
-              <p className="text-sm text-gray-600 mt-2">
+              <p className="text-sm text-muted-foreground mt-2">
                 {gpaCategory.description}
               </p>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="text-center p-3 bg-white/50 rounded-lg">
-                  <div className="text-lg font-bold text-gray-800">
+                  <div className="text-lg font-bold text-foreground">
                     {result.totalCredits}
                   </div>
-                  <div className="text-sm text-gray-600">총 학점</div>
+                  <div className="text-sm text-muted-foreground">총 학점</div>
                 </div>
                 <div className="text-center p-3 bg-white/50 rounded-lg">
-                  <div className="text-lg font-bold text-gray-800">
+                  <div className="text-lg font-bold text-foreground">
                     {result.totalScore}
                   </div>
-                  <div className="text-sm text-gray-600">총 점수</div>
+                  <div className="text-sm text-muted-foreground">총 점수</div>
                 </div>
               </div>
 
               <div className="space-y-3 mb-6">
-                <div className="text-sm font-medium text-gray-700 mb-2">
+                <div className="text-sm font-medium text-primary mb-2">
                   💡 학업 개선 조언:
                 </div>
                 {gpaCategory.advice.map((advice, index) => (
@@ -394,13 +388,13 @@ export default function GPAPage() {
                     className="flex items-start gap-2 p-3 bg-white/50 rounded-lg"
                   >
                     <span className="text-indigo-500 mt-1">•</span>
-                    <span className="text-gray-700 text-sm">{advice}</span>
+                    <span className="text-primary text-sm">{advice}</span>
                   </div>
                 ))}
               </div>
 
               <div className="p-3 bg-white/50 rounded-lg">
-                <div className="text-sm font-medium text-gray-700 mb-2">
+                <div className="text-sm font-medium text-primary mb-2">
                   📊 성적 분포:
                 </div>
                 <div className="grid grid-cols-3 gap-2 text-xs">
@@ -417,9 +411,9 @@ export default function GPAPage() {
           </Card>
         )}
 
-        <Card className="bg-gradient-to-r from-indigo-100 to-purple-100">
+        <Card>
           <CardContent className="pt-6">
-            <div className="text-center text-sm text-gray-600">
+            <div className="text-center text-sm text-muted-foreground">
               <p className="mb-2">⚠️ 참고사항</p>
               <p className="text-xs">
                 학교마다 성적 체계가 다를 수 있습니다. 정확한 GPA는 소속 대학의
@@ -433,30 +427,30 @@ export default function GPAPage() {
         <div className="mt-8 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-indigo-700 flex items-center justify-center gap-2">
+              <CardTitle className="text-center text-primary flex items-center justify-center gap-2">
                 📊 GPA란 무엇인가요?
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   📚 Grade Point Average
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   GPA는 학점평균평점으로, 학생의 전체적인 학업 성취도를 나타내는
                   지표입니다. 각 과목의 성적에 학점 수를 곱한 값들을 모두 더하여
                   총 학점 수로 나누어 계산합니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🧮 계산 공식
                 </h3>
                 <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
                   <p className="text-center text-lg font-mono text-indigo-800">
                     GPA = (성적1×학점1 + 성적2×학점2 + ...) ÷ 총 학점
                   </p>
-                  <p className="text-center text-sm text-gray-600 mt-2">
+                  <p className="text-center text-sm text-muted-foreground mt-2">
                     예: A(4.0)×3학점 + B+(3.5)×2학점 = (12.0+7.0) ÷ 5학점 = 3.8
                   </p>
                 </div>
@@ -466,7 +460,7 @@ export default function GPAPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-indigo-700">
+              <CardTitle className="text-center text-primary">
                 📋 성적 등급표
               </CardTitle>
             </CardHeader>
@@ -474,10 +468,12 @@ export default function GPAPage() {
               {gradeOptions.map((option) => (
                 <div
                   key={option.grade}
-                  className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
+                  className="flex items-center justify-between p-3 bg-muted rounded-lg"
                 >
                   <span className="font-semibold text-lg">{option.grade}</span>
-                  <span className="text-gray-600">{option.score} 점</span>
+                  <span className="text-muted-foreground">
+                    {option.score} 점
+                  </span>
                 </div>
               ))}
             </CardContent>
@@ -485,16 +481,16 @@ export default function GPAPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-indigo-700">
+              <CardTitle className="text-center text-primary">
                 🎯 GPA 활용 방법
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🎓 학업 관리
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 학기별 성적 추이 파악</li>
                   <li>• 졸업 요건 충족 여부 확인</li>
                   <li>• 전공별 최소 GPA 기준 확인</li>
@@ -502,10 +498,10 @@ export default function GPAPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   💼 취업 및 진학
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 기업 입사 지원 시 성적 기준</li>
                   <li>• 대학원 진학 시 성적 요구사항</li>
                   <li>• 장학금 신청 시 성적 기준</li>
@@ -517,16 +513,16 @@ export default function GPAPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-indigo-700">
+              <CardTitle className="text-center text-primary">
                 💡 성적 향상 전략
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   📈 체계적인 학습
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 학기 초 강의계획서 꼼꼼히 분석</li>
                   <li>• 과목별 중요도에 따른 시간 배분</li>
                   <li>• 규칙적인 예습·복습 습관</li>
@@ -534,10 +530,10 @@ export default function GPAPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🤝 적극적인 참여
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 수업 시간 적극적인 참여</li>
                   <li>• 교수님과의 면담 활용</li>
                   <li>• 스터디 그룹 참여</li>
@@ -549,35 +545,35 @@ export default function GPAPage() {
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-center text-indigo-700">
+              <CardTitle className="text-center text-primary">
                 ❓ 자주 묻는 질문
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 학교마다 GPA 계산법이 다른가요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 네, 대학마다 성적 등급과 점수가 다를 수 있습니다. 4.0 만점,
                   4.3 만점, 4.5 만점 등 다양한 체계가 있으므로 소속 대학의
                   규정을 확인하세요.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. P/F 과목은 GPA에 포함되나요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. Pass/Fail 과목은 일반적으로 GPA 계산에 포함되지 않습니다.
                   단, 학교마다 규정이 다르므로 확인이 필요합니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 재수강한 과목은 어떻게 처리되나요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 재수강 처리 방식은 학교마다 다릅니다. 최고 성적만 반영,
                   평균값 반영, 모두 반영 등 다양한 방식이 있습니다.
                 </p>

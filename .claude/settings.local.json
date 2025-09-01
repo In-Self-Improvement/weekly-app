@@ -11,7 +11,10 @@
       "WebFetch(domain:www.youtube.com)",
       "Bash(npm run dev)",
       "Bash(find:*)",
-      "WebFetch(domain:webtool.cusis.net)"
+      "WebFetch(domain:webtool.cusis.net)",
+      "Bash(grep:*)",
+      "Bash(sed:*)",
+      "Bash(npm install)"
     ],
     "deny": []
   }

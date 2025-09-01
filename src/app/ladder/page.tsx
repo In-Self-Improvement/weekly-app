@@ -317,12 +317,7 @@ export default function LadderGame() {
 
               <div className="flex gap-4 justify-center">
                 {!gameStarted ? (
-                  <Button
-                    onClick={startGame}
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
-                  >
-                    게임 시작
-                  </Button>
+                  <Button onClick={startGame}>게임 시작</Button>
                 ) : (
                   <div className="text-center">
                     <p className="text-sm text-purple-700 mb-2">
@@ -379,7 +374,7 @@ export default function LadderGame() {
                         className={`h-8 text-xs text-center border-2 rounded shadow-sm font-medium transition-all duration-200 ${
                           selectedPlayer === index
                             ? "bg-red-500 border-red-600 text-white"
-                            : "bg-blue-100 border-blue-400 text-blue-800 hover:bg-blue-50 hover:border-blue-500"
+                            : "bg-blue-100 border-blue-300 text-blue-800"
                         } ${
                           isPlaying
                             ? "cursor-not-allowed opacity-50"
@@ -401,7 +396,7 @@ export default function LadderGame() {
                           top: "0px",
                           width: `${boxWidth}px`,
                         }}
-                        className="h-8 text-xs text-center border-2 border-blue-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-blue-50 shadow-sm text-blue-800 font-medium placeholder-blue-600"
+                        className="h-8 text-xs text-center border-2 border-blue-400 rounded focus:outline-none focus:ring-ring bg-blue-50 shadow-sm text-blue-800 font-medium placeholder-blue-600"
                       />
                     );
                   })}
@@ -417,7 +412,7 @@ export default function LadderGame() {
                     ref={canvasRef}
                     width={getCanvasWidth()}
                     height={CANVAS_HEIGHT}
-                    className="border-2 border-gray-300 rounded bg-white shadow-sm"
+                    className="border-2 border-input rounded bg-white shadow-sm"
                     style={{
                       display: "block",
                       width: "100%",
@@ -472,7 +467,7 @@ export default function LadderGame() {
                           top: "0px",
                           width: `${boxWidth}px`,
                         }}
-                        className="h-8 text-xs text-center border-2 border-green-400 rounded focus:outline-none focus:ring-2 focus:ring-purple-500 bg-green-50 shadow-sm text-green-800 font-medium placeholder-green-600"
+                        className="h-8 text-xs text-center border-2 border-green-400 rounded focus:outline-none focus:ring-ring bg-green-50 shadow-sm text-green-800 font-medium placeholder-green-600"
                       />
                     );
                   })}
@@ -492,7 +487,7 @@ export default function LadderGame() {
                 {finalResults.map((result, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-4 bg-gradient-to-r from-purple-100 to-pink-100 rounded-lg"
+                    className="flex items-center justify-between p-4 bg-purple-50 rounded-lg border border-purple-200"
                   >
                     <span className="font-medium text-purple-800">
                       {result.player}
@@ -518,20 +513,20 @@ export default function LadderGame() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 🎲 공정한 선택
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 사다리타기는 여러 선택지 중에서 공정하고 랜덤하게 결과를 정하는
                 전통적인 방법입니다. 누구도 결과를 예측할 수 없어 완전히 공평한
                 선택이 가능합니다.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 🎯 간편한 결정
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 복잡한 선택 상황에서 빠르고 재미있게 결정을 내릴 수 있습니다.
                 친구들과의 게임이나 일상의 작은 선택에서 유용하게 활용하세요.
               </p>
@@ -550,10 +545,10 @@ export default function LadderGame() {
               <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
                 <span className="text-purple-600 font-bold text-lg">1️⃣</span>
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">
+                  <h3 className="font-semibold text-foreground mb-1">
                     참가자 설정
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     참가자 수를 선택하고 각자의 이름을 입력하세요. (2~8명까지
                     가능)
                   </p>
@@ -563,10 +558,10 @@ export default function LadderGame() {
               <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
                 <span className="text-purple-600 font-bold text-lg">2️⃣</span>
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">
+                  <h3 className="font-semibold text-foreground mb-1">
                     결과 설정
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     각 결과에 해당하는 내용을 입력하세요. (예: 치킨, 피자, 족발,
                     보쌈)
                   </p>
@@ -576,10 +571,10 @@ export default function LadderGame() {
               <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
                 <span className="text-purple-600 font-bold text-lg">3️⃣</span>
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">
+                  <h3 className="font-semibold text-foreground mb-1">
                     게임 시작
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     &apos;게임 시작&apos; 버튼을 누르면 랜덤하게 생성된 사다리가
                     나타납니다.
                   </p>
@@ -589,10 +584,10 @@ export default function LadderGame() {
               <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-100">
                 <span className="text-purple-600 font-bold text-lg">4️⃣</span>
                 <div>
-                  <h3 className="font-semibold text-gray-800 mb-1">
+                  <h3 className="font-semibold text-foreground mb-1">
                     경로 확인
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-muted-foreground">
                     원하는 참가자를 클릭하면 해당 경로가 빨간색으로 표시되며
                     결과를 확인할 수 있습니다.
                   </p>
@@ -613,9 +608,9 @@ export default function LadderGame() {
               <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-2xl">🍕</span>
-                  <h3 className="font-semibold text-gray-800">음식 결정</h3>
+                  <h3 className="font-semibold text-foreground">음식 결정</h3>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-muted-foreground">
                   오늘 뭘 먹을지 고민될 때 - 치킨, 피자, 중국음식, 한식 중에서
                   선택
                 </p>
@@ -624,9 +619,9 @@ export default function LadderGame() {
               <div className="p-4 bg-green-50 rounded-lg border border-green-100">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-2xl">🎬</span>
-                  <h3 className="font-semibold text-gray-800">영화 선택</h3>
+                  <h3 className="font-semibold text-foreground">영화 선택</h3>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-muted-foreground">
                   여러 명이 함께 볼 영화를 정할 때 - 각자 보고싶은 영화를 후보로
                   등록
                 </p>
@@ -635,9 +630,9 @@ export default function LadderGame() {
               <div className="p-4 bg-orange-50 rounded-lg border border-orange-100">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-2xl">🎯</span>
-                  <h3 className="font-semibold text-gray-800">역할 분담</h3>
+                  <h3 className="font-semibold text-foreground">역할 분담</h3>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-muted-foreground">
                   팀 프로젝트에서 역할 분담 - 기획, 디자인, 개발, 발표 등의 역할
                   배정
                 </p>
@@ -646,9 +641,9 @@ export default function LadderGame() {
               <div className="p-4 bg-pink-50 rounded-lg border border-pink-100">
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-2xl">🏆</span>
-                  <h3 className="font-semibold text-gray-800">순서 정하기</h3>
+                  <h3 className="font-semibold text-foreground">순서 정하기</h3>
                 </div>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-muted-foreground">
                   발표 순서, 게임 순서 등 - 1번, 2번, 3번... 순서로 결과 설정
                 </p>
               </div>
@@ -664,26 +659,28 @@ export default function LadderGame() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 🎲 완전한 랜덤성
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 사다리의 가로선은 컴퓨터가 완전히 랜덤하게 생성합니다. 누구도
                 결과를 예측하거나 조작할 수 없어 100% 공정합니다.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">👥 적정 인원</h3>
-              <p className="text-gray-600 text-sm">
+              <h3 className="font-semibold text-foreground mb-2">
+                👥 적정 인원
+              </h3>
+              <p className="text-muted-foreground text-sm">
                 2~8명이 가장 적절합니다. 너무 많으면 화면이 복잡해지고, 너무
                 적으면 재미가 반감될 수 있습니다.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 📱 모바일 최적화
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 모바일에서도 편리하게 사용할 수 있도록 최적화되어 있습니다.
                 친구들과 함께 있을 때 언제든 쉽게 사용하세요.
               </p>
@@ -699,29 +696,29 @@ export default function LadderGame() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 Q. 결과를 다시 바꿀 수 있나요?
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 A. &apos;새 게임&apos; 버튼을 눌러 처음부터 다시 시작할 수
                 있습니다. 새로운 사다리가 생성되어 완전히 다른 결과를 얻게
                 됩니다.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 Q. 정말 공정한가요?
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 A. 네, 컴퓨터의 난수 생성기를 사용하여 완전히 랜덤하게 사다리를
                 만듭니다. 사람이 개입할 수 없어 100% 공정합니다.
               </p>
             </div>
             <div>
-              <h3 className="font-semibold text-gray-800 mb-2">
+              <h3 className="font-semibold text-foreground mb-2">
                 Q. 같은 이름으로 여러 번 참가할 수 있나요?
               </h3>
-              <p className="text-gray-600 text-sm">
+              <p className="text-muted-foreground text-sm">
                 A. 네, 같은 이름도 입력 가능합니다. 하지만 구분을 위해 다른
                 이름을 사용하는 것을 권장합니다.
               </p>

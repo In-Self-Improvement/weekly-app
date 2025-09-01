@@ -90,22 +90,14 @@ export default function VatCalculatorPage() {
               <Button
                 variant={mode === "add" ? "default" : "outline"}
                 onClick={() => setMode("add")}
-                className={`h-12 ${
-                  mode === "add"
-                    ? "bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white"
-                    : "border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white hover:border-slate-500"
-                }`}
+                className={`h-12 ${mode === "add"}`}
               >
                 부가세 포함
               </Button>
               <Button
                 variant={mode === "subtract" ? "default" : "outline"}
                 onClick={() => setMode("subtract")}
-                className={`h-12 ${
-                  mode === "subtract"
-                    ? "bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white"
-                    : "border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white hover:border-slate-500"
-                }`}
+                className={`h-12 ${mode === "subtract"}`}
               >
                 부가세 제외
               </Button>
@@ -145,7 +137,7 @@ export default function VatCalculatorPage() {
                 <Button
                   onClick={calculateVat}
                   disabled={!amount || loading}
-                  className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-slate-600 to-slate-700 hover:from-slate-700 hover:to-slate-800 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="flex-1 h-12 text-lg font-semibold"
                 >
                   {loading ? (
                     <div className="flex items-center">
@@ -157,11 +149,7 @@ export default function VatCalculatorPage() {
                   )}
                 </Button>
 
-                <Button
-                  onClick={reset}
-                  variant="outline"
-                  className="h-12 px-4 border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white hover:border-slate-500"
-                >
+                <Button onClick={reset} variant="outline" className="h-12 px-4">
                   <RotateCcw className="w-4 h-4" />
                 </Button>
               </div>
@@ -262,7 +250,7 @@ export default function VatCalculatorPage() {
                   key={value}
                   onClick={() => setAmount(value.toString())}
                   variant="outline"
-                  className="text-xs h-8 border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white hover:border-slate-500"
+                  className="text-xs h-8"
                 >
                   {formatNumber(value)}원
                 </Button>
