@@ -15,6 +15,16 @@ module.exports = {
         allow: "/",
         disallow: ["/api"],
       },
+      {
+        userAgent: "Yeti",
+        allow: "/",
+        disallow: ["/api"],
+      },
+      {
+        userAgent: "NaverBot",
+        allow: "/",
+        disallow: ["/api"],
+      },
     ],
   },
   transform: async (config, path) => {

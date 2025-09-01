@@ -77,6 +77,9 @@ export const metadata: Metadata = {
   verification: {
     google: "9QHRV7C-9vMcg_dgsaBsMHH6-osb513zfsN0ZhEGSTk",
   },
+  other: {
+    "naver-site-verification": "5d4f1d71b05a727a4e6081856af0c1117efc5fb8",
+  },
 };
 
 export default function RootLayout({
