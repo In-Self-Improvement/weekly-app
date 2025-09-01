@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://weekly-app.kr",
+  siteUrl: process.env.SITE_URL || "https://weekly-app.net",
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   changefreq: "weekly",
