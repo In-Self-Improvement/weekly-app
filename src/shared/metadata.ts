@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-apps.net";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-app.net";
 
 export interface PageMetadata {
   title: string;
@@ -479,7 +479,14 @@ export function generateMetadata(pathname: string): Metadata {
       siteName: "Weekly Apps",
       locale: "ko_KR",
       type: "website",
-      images: pageData.openGraph?.images,
+      images: pageData.openGraph?.images
+        ? pageData.openGraph.images.map((img) => ({
+            url: img,
+            width: 1200,
+            height: 630,
+            alt: pageData.openGraph?.title || pageData.title,
+          }))
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
@@ -497,6 +504,18 @@ export function generateMetadata(pathname: string): Metadata {
         "max-image-preview": "large",
         "max-snippet": -1,
       },
+    },
+    // 카카오톡 및 기타 소셜 미디어를 위한 추가 메타데이터
+    other: {
+      // 카카오톡 App Link 메타태그
+      "al:web:url": `${baseUrl}${pathname}`,
+      "al:web:should_fallback": "true",
+      // 이미지 크기 명시 (일부 플랫폼에서 필요)
+      "og:image:width": "1200",
+      "og:image:height": "630",
+      "og:image:type": "image/png",
+      // 추가 소셜 미디어 지원
+      "article:publisher": "https://weekly-app.net",
     },
   };
 }
