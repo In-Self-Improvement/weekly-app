@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-apps.vercel.app";
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://weekly-apps.net";
 
 export interface PageMetadata {
   title: string;
