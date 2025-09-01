@@ -130,6 +130,14 @@ export default function HomePage() {
       href: "/case-converter",
       gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
     },
+    {
+      id: "installment-calculator",
+      name: "할부 계산기",
+      description: "여러 카드의 할부 조건을 비교하고 최적의 선택을 하세요",
+      icon: "💳",
+      href: "/installment-calculator",
+      gradient: "bg-gradient-to-br from-gray-800 to-black",
+    },
   ];
 
   return (
