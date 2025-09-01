@@ -14,7 +14,9 @@
       "WebFetch(domain:webtool.cusis.net)",
       "Bash(grep:*)",
       "Bash(sed:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": []
   }
