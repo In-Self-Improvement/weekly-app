@@ -125,13 +125,13 @@ export default function CompoundInterestPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-teal-100 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-md mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             💰 복리 계산기
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             투자의 마법, 복리 효과를 미리 체험해보세요
           </p>
         </div>
@@ -149,7 +149,7 @@ export default function CompoundInterestPage() {
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 초기 투자금 (원)
               </label>
               <input
@@ -158,12 +158,12 @@ export default function CompoundInterestPage() {
                 placeholder="예: 1000000"
                 value={principal}
                 onChange={(e) => setPrincipal(e.target.value)}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
+                className="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 연 명목이자율 (%)
               </label>
               <input
@@ -173,15 +173,15 @@ export default function CompoundInterestPage() {
                 placeholder="예: 5.5"
                 value={rate}
                 onChange={(e) => setRate(e.target.value)}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
+                className="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
               />
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted-foreground mt-1">
                 복리 주기에 따라 실제 연 수익률이 달라집니다
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 투자 기간 (년)
               </label>
               <input
@@ -190,18 +190,18 @@ export default function CompoundInterestPage() {
                 placeholder="예: 10"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
+                className="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 복리 주기
               </label>
               <select
                 value={compound}
                 onChange={(e) => setCompound(e.target.value)}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
+                className="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
               >
                 <option value="1">연복리 (1년에 1번)</option>
                 <option value="2">반기복리 (1년에 2번)</option>
@@ -209,15 +209,15 @@ export default function CompoundInterestPage() {
                 <option value="12">월복리 (1년에 12번)</option>
                 <option value="365">일복리 (1년에 365번)</option>
               </select>
-              <p className="text-xs text-gray-500 mt-1">
+              <p className="text-xs text-muted-foreground mt-1">
                 복리 주기가 짧을수록 더 많은 수익이 발생합니다
               </p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-primary mb-2">
                 월 추가 투자금 (원){" "}
-                <span className="text-gray-500">(선택사항)</span>
+                <span className="text-muted-foreground">(선택사항)</span>
               </label>
               <input
                 type="number"
@@ -225,7 +225,7 @@ export default function CompoundInterestPage() {
                 placeholder="예: 100000"
                 value={monthlyDeposit}
                 onChange={(e) => setMonthlyDeposit(e.target.value)}
-                className="w-full px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
+                className="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-center text-lg"
               />
             </div>
 
@@ -233,7 +233,7 @@ export default function CompoundInterestPage() {
               <Button
                 onClick={calculateCompoundInterest}
                 disabled={!principal || !rate || !time}
-                className="flex-1 h-12 text-lg font-semibold bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                className="flex-1 h-12 text-lg font-semibold"
               >
                 <TrendingUp className="w-5 h-5 mr-2" />
                 계산하기
@@ -304,8 +304,8 @@ export default function CompoundInterestPage() {
                   </div>
 
                   {/* 투자 조건 요약 */}
-                  <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="text-sm text-gray-600 text-center">
+                  <div className="bg-muted rounded-lg p-3">
+                    <div className="text-sm text-muted-foreground text-center">
                       <div className="font-medium mb-1">투자 조건</div>
                       <div>
                         명목이자율 {rate}% · {time}년 ·{" "}
@@ -346,7 +346,7 @@ export default function CompoundInterestPage() {
               <CardContent>
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="text-center">
-                    <div className="font-semibold text-gray-700">수익률</div>
+                    <div className="font-semibold text-primary">수익률</div>
                     <div className="text-xl font-bold text-green-600">
                       {(
                         (result.totalInterest / result.principal) *
@@ -356,13 +356,13 @@ export default function CompoundInterestPage() {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="font-semibold text-gray-700">투자 배수</div>
+                    <div className="font-semibold text-primary">투자 배수</div>
                     <div className="text-xl font-bold text-blue-600">
                       {(result.finalAmount / result.principal).toFixed(1)}배
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="font-semibold text-gray-700">
+                    <div className="font-semibold text-primary">
                       연평균 수익
                     </div>
                     <div className="text-xl font-bold text-purple-600">
@@ -370,7 +370,7 @@ export default function CompoundInterestPage() {
                     </div>
                   </div>
                   <div className="text-center">
-                    <div className="font-semibold text-gray-700">
+                    <div className="font-semibold text-primary">
                       월평균 수익
                     </div>
                     <div className="text-xl font-bold text-orange-600">
@@ -385,9 +385,9 @@ export default function CompoundInterestPage() {
             </Card>
 
             {/* 연도별 상세 내역 */}
-            <Card className="bg-white border border-gray-200">
+            <Card className="bg-white border border-border">
               <CardHeader>
-                <CardTitle className="text-center text-gray-700 flex items-center justify-center gap-2">
+                <CardTitle className="text-center text-primary flex items-center justify-center gap-2">
                   <Calendar className="w-5 h-5" />
                   연도별 상세 내역
                 </CardTitle>
@@ -397,17 +397,17 @@ export default function CompoundInterestPage() {
                   {result.yearlyBreakdown.map((year) => (
                     <div
                       key={year.year}
-                      className="border rounded-lg p-3 bg-gray-50"
+                      className="border rounded-lg p-3 bg-muted"
                     >
                       <div className="flex justify-between items-center mb-2">
-                        <span className="font-semibold text-gray-700">
+                        <span className="font-semibold text-primary">
                           {year.year}년차
                         </span>
                         <span className="text-sm font-bold text-emerald-600">
                           {formatMoney(year.endAmount)}원
                         </span>
                       </div>
-                      <div className="grid grid-cols-3 gap-2 text-xs text-gray-600">
+                      <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground">
                         <div>
                           <div className="font-medium">기초금액</div>
                           <div>{formatMoney(year.startAmount)}원</div>
@@ -439,7 +439,7 @@ export default function CompoundInterestPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3 text-sm text-gray-700">
+                <div className="space-y-3 text-sm text-primary">
                   <div className="flex items-start gap-2">
                     <span className="text-green-500 font-bold">•</span>
                     <span>
@@ -484,17 +484,17 @@ export default function CompoundInterestPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🧮 복리의 개념
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   복리는 원금에 이자를 더한 금액을 다시 원금으로 하여 이자를
                   계산하는 방식입니다. &apos;이자에 대한 이자&apos;가 발생하여
                   시간이 갈수록 기하급수적으로 증가합니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   ⚡ 아인슈타인의 명언
                 </h3>
                 <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-100">
@@ -524,13 +524,13 @@ export default function CompoundInterestPage() {
                       단리 (Simple Interest)
                     </h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     원금에 대해서만 이자를 계산하는 방식
                   </p>
                   <div className="bg-blue-100 p-3 rounded text-sm">
                     <strong>공식:</strong> 원금 × 이자율 × 기간
                   </div>
-                  <div className="text-xs text-gray-500 mt-2">
+                  <div className="text-xs text-muted-foreground mt-2">
                     예: 100만원 × 5% × 10년 = 150만원
                   </div>
                 </div>
@@ -542,13 +542,13 @@ export default function CompoundInterestPage() {
                       복리 (Compound Interest)
                     </h3>
                   </div>
-                  <p className="text-sm text-gray-600 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     원금과 누적된 이자에 대해 이자를 계산하는 방식
                   </p>
                   <div className="bg-emerald-100 p-3 rounded text-sm">
                     <strong>공식:</strong> 원금 × (1 + 이자율)^기간
                   </div>
-                  <div className="text-xs text-gray-500 mt-2">
+                  <div className="text-xs text-muted-foreground mt-2">
                     예: 100만원 × (1.05)^10 = 약 163만원
                   </div>
                 </div>
@@ -564,15 +564,15 @@ export default function CompoundInterestPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   ⏰ 시간의 힘
                 </h3>
-                <p className="text-gray-600 text-sm mb-2">
+                <p className="text-muted-foreground text-sm mb-2">
                   복리의 가장 큰 장점은 시간입니다. 시간이 길수록 복리 효과가
                   기하급수적으로 증가합니다.
                 </p>
                 <div className="bg-yellow-50 p-3 rounded-lg border border-yellow-100">
-                  <div className="text-sm text-gray-700">
+                  <div className="text-sm text-primary">
                     <strong>72의 법칙:</strong> 72 ÷ 이자율 = 원금이 2배가 되는
                     기간
                     <br />
@@ -581,20 +581,20 @@ export default function CompoundInterestPage() {
                 </div>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   💰 정기적인 추가 투자
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   매월 일정 금액을 추가로 투자하면 복리 효과가 더욱 커집니다.
                   이를 &apos;적립식 투자&apos;라고 하며, 달러 코스트 평균법의
                   효과도 얻을 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🔄 복리 계산 주기
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   복리 계산 주기가 짧을수록 더 많은 수익을 얻을 수 있습니다.
                   연복리 &lt; 반기복리 &lt; 월복리 &lt; 일복리 순으로 수익이
                   증가합니다.
@@ -614,9 +614,9 @@ export default function CompoundInterestPage() {
                 <div className="p-4 bg-green-50 rounded-lg border border-green-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🏦</span>
-                    <h3 className="font-semibold text-gray-800">예적금</h3>
+                    <h3 className="font-semibold text-foreground">예적금</h3>
                   </div>
-                  <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                     <li>• 안전한 투자처, 원금 보장</li>
                     <li>• 연 2-4% 수준의 이자율</li>
                     <li>• 월복리 또는 일복리 적용</li>
@@ -626,9 +626,9 @@ export default function CompoundInterestPage() {
                 <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">📊</span>
-                    <h3 className="font-semibold text-gray-800">펀드</h3>
+                    <h3 className="font-semibold text-foreground">펀드</h3>
                   </div>
-                  <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                     <li>• 연평균 5-8% 수익률 기대</li>
                     <li>• 배당금 재투자를 통한 복리 효과</li>
                     <li>• 장기투자 시 인플레이션 헤지</li>
@@ -638,9 +638,9 @@ export default function CompoundInterestPage() {
                 <div className="p-4 bg-purple-50 rounded-lg border border-purple-100">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-2xl">🏢</span>
-                    <h3 className="font-semibold text-gray-800">주식</h3>
+                    <h3 className="font-semibold text-foreground">주식</h3>
                   </div>
-                  <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                  <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                     <li>• 배당주 재투자를 통한 복리</li>
                     <li>• 기업 성장과 함께 가치 상승</li>
                     <li>• 장기적으로 가장 높은 수익률</li>
@@ -658,30 +658,30 @@ export default function CompoundInterestPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🎯 목표 설정
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 구체적인 목표 금액과 기간 설정</li>
                   <li>• 현실적인 수익률 기대치 설정</li>
                   <li>• 인플레이션을 고려한 실질 수익률 계산</li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   🔄 분산 투자
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 여러 자산에 분산하여 리스크 관리</li>
                   <li>• 안전자산과 성장자산의 적절한 배분</li>
                   <li>• 정기적인 리밸런싱으로 포트폴리오 조정</li>
                 </ul>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   ⏳ 장기 투자
                 </h3>
-                <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                <ul className="text-sm text-muted-foreground space-y-1 ml-4">
                   <li>• 최소 10년 이상의 장기 투자 마인드</li>
                   <li>• 시장 변동성에 흔들리지 않는 원칙</li>
                   <li>• 중간 인출 없이 복리 효과 극대화</li>
@@ -698,28 +698,28 @@ export default function CompoundInterestPage() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 복리와 단리의 차이가 얼마나 클까요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 시간이 길수록 차이가 커집니다. 100만원을 연 5%로 20년 투자
                   시 단리는 200만원, 복리는 약 265만원으로 65만원 차이가 납니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 세금은 어떻게 고려해야 하나요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 이자소득세, 배당소득세 등을 고려해야 합니다. ISA, 연금저축
                   등 세제혜택 상품을 활용하면 세후 수익률을 높일 수 있습니다.
                 </p>
               </div>
               <div>
-                <h3 className="font-semibold text-gray-800 mb-2">
+                <h3 className="font-semibold text-foreground mb-2">
                   Q. 인플레이션을 고려해야 하나요?
                 </h3>
-                <p className="text-gray-600 text-sm">
+                <p className="text-muted-foreground text-sm">
                   A. 네, 실질 수익률을 계산해야 합니다. 명목 수익률에서
                   인플레이션율을 빼면 실질 구매력 증가를 알 수 있습니다.
                 </p>

@@ -1,7 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 type InterestType = "simple" | "compound";
@@ -34,11 +40,11 @@ export default function InterestCalculator() {
       // 단리 계산: I = P * r * t
       const simpleInterest = p * r * t;
       const totalAmount = p + simpleInterest;
-      
+
       setResult({
         simple: simpleInterest,
         totalAmount: totalAmount,
-        totalInterest: simpleInterest
+        totalInterest: simpleInterest,
       });
     } else {
       // 복리 계산: A = P(1 + r/n)^(nt)
@@ -46,14 +52,14 @@ export default function InterestCalculator() {
         alert("올바른 복리 계산 주기를 입력해주세요.");
         return;
       }
-      
-      const totalAmount = p * Math.pow(1 + (r / n), n * t);
+
+      const totalAmount = p * Math.pow(1 + r / n, n * t);
       const compoundInterest = totalAmount - p;
-      
+
       setResult({
         compound: compoundInterest,
         totalAmount: totalAmount,
-        totalInterest: compoundInterest
+        totalInterest: compoundInterest,
       });
     }
   };
@@ -67,22 +73,24 @@ export default function InterestCalculator() {
   };
 
   const formatNumber = (num: number) => {
-    return new Intl.NumberFormat('ko-KR').format(Math.round(num));
+    return new Intl.NumberFormat("ko-KR").format(Math.round(num));
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-md mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             💰 이자 계산기
           </h1>
-          <p className="text-gray-300">단리와 복리 이자를 계산해보세요</p>
+          <p className="text-muted-foreground">
+            단리와 복리 이자를 계산해보세요
+          </p>
         </div>
 
-        <Card className="mb-4 bg-gray-800 border-gray-700">
+        <Card className="mb-4 ">
           <CardHeader>
-            <CardTitle className="text-center text-yellow-400">
+            <CardTitle className="text-center text-primary">
               💳 계산 유형 선택
             </CardTitle>
           </CardHeader>
@@ -91,22 +99,14 @@ export default function InterestCalculator() {
               <Button
                 variant={interestType === "simple" ? "default" : "outline"}
                 onClick={() => setInterestType("simple")}
-                className={`h-12 ${
-                  interestType === "simple"
-                    ? "bg-gradient-to-r from-yellow-600 to-yellow-700 text-white"
-                    : "border-gray-600 text-gray-300 hover:bg-gray-700"
-                }`}
+                className={`h-12 ${interestType === "simple" ? "" : ""}`}
               >
                 단리 계산
               </Button>
               <Button
                 variant={interestType === "compound" ? "default" : "outline"}
                 onClick={() => setInterestType("compound")}
-                className={`h-12 ${
-                  interestType === "compound"
-                    ? "bg-gradient-to-r from-yellow-600 to-yellow-700 text-white"
-                    : "border-gray-600 text-gray-300 hover:bg-gray-700"
-                }`}
+                className={`h-12 ${interestType === "compound" ? "" : ""}`}
               >
                 복리 계산
               </Button>
@@ -114,18 +114,19 @@ export default function InterestCalculator() {
           </CardContent>
         </Card>
 
-        <Card className="mb-4 bg-gray-800 border-gray-700">
+        <Card className="mb-4 ">
           <CardHeader>
-            <CardTitle className="text-center text-yellow-400">
+            <CardTitle className="text-center text-primary">
               📊 정보 입력
             </CardTitle>
-            <CardDescription className="text-center text-gray-400">
-              {interestType === "simple" ? "단리 이자 계산" : "복리 이자 계산"}을 위한 정보를 입력하세요
+            <CardDescription className="text-center text-muted-foreground">
+              {interestType === "simple" ? "단리 이자 계산" : "복리 이자 계산"}
+              을 위한 정보를 입력하세요
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 원금 (원)
               </label>
               <input
@@ -134,12 +135,12 @@ export default function InterestCalculator() {
                 placeholder="예: 1000000"
                 value={principal}
                 onChange={(e) => setPrincipal(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-center text-lg text-white placeholder-gray-400"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-center text-lg text-foreground placeholder:text-muted-foreground"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 연이율 (%)
               </label>
               <input
@@ -148,12 +149,12 @@ export default function InterestCalculator() {
                 placeholder="예: 5.5"
                 value={rate}
                 onChange={(e) => setRate(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-center text-lg text-white placeholder-gray-400"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-center text-lg text-foreground placeholder:text-muted-foreground"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
+              <label className="block text-sm font-medium text-muted-foreground mb-2">
                 기간 (년)
               </label>
               <input
@@ -162,19 +163,19 @@ export default function InterestCalculator() {
                 placeholder="예: 3"
                 value={time}
                 onChange={(e) => setTime(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-center text-lg text-white placeholder-gray-400"
+                className="w-full px-3 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-center text-lg text-foreground placeholder:text-muted-foreground"
               />
             </div>
 
             {interestType === "compound" && (
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
+                <label className="block text-sm font-medium text-muted-foreground mb-2">
                   연간 복리 계산 횟수
                 </label>
                 <select
                   value={compoundPeriod}
                   onChange={(e) => setCompoundPeriod(e.target.value)}
-                  className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent text-center text-lg text-white"
+                  className="w-full px-3 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-center text-lg text-foreground"
                 >
                   <option value="1">연 1회 (매년)</option>
                   <option value="2">연 2회 (반기)</option>
@@ -186,17 +187,13 @@ export default function InterestCalculator() {
             )}
 
             <div className="grid grid-cols-2 gap-2 mt-6">
-              <Button 
+              <Button
                 onClick={calculateInterest}
-                className="h-12 text-lg font-semibold bg-gradient-to-r from-yellow-600 to-yellow-700 hover:from-yellow-700 hover:to-yellow-800 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-white"
+                className="h-12 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 계산하기
               </Button>
-              <Button
-                variant="outline"
-                onClick={reset}
-                className="h-12 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
-              >
+              <Button variant="outline" onClick={reset} className="h-12">
                 초기화
               </Button>
             </div>
@@ -204,35 +201,37 @@ export default function InterestCalculator() {
         </Card>
 
         {result && (
-          <Card className="mb-4 bg-gradient-to-r from-yellow-900 to-yellow-800 border-yellow-600">
+          <Card className="mb-4 ">
             <CardHeader>
-              <CardTitle className="text-center text-yellow-200">
+              <CardTitle className="text-center text-foreground">
                 📈 계산 결과
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="text-center">
-                <div className="text-sm text-yellow-300 mb-1">총 이자</div>
-                <div className="text-2xl font-bold text-yellow-100">
+                <div className="text-sm text-primary mb-1">총 이자</div>
+                <div className="text-2xl font-bold text-foreground">
                   {formatNumber(result.totalInterest!)}원
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-sm text-yellow-300 mb-1">총 금액 (원금 + 이자)</div>
-                <div className="text-xl font-semibold text-yellow-100">
+                <div className="text-sm text-primary mb-1">
+                  총 금액 (원금 + 이자)
+                </div>
+                <div className="text-xl font-semibold text-foreground">
                   {formatNumber(result.totalAmount!)}원
                 </div>
               </div>
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-yellow-600">
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-border">
                 <div className="text-center">
-                  <div className="text-sm text-yellow-300">원금</div>
-                  <div className="text-lg font-medium text-yellow-100">
+                  <div className="text-sm text-primary">원금</div>
+                  <div className="text-lg font-medium text-foreground">
                     {formatNumber(parseFloat(principal))}원
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-yellow-300">이자율</div>
-                  <div className="text-lg font-medium text-yellow-100">
+                  <div className="text-sm text-primary">이자율</div>
+                  <div className="text-lg font-medium text-foreground">
                     연 {rate}%
                   </div>
                 </div>
@@ -241,48 +240,56 @@ export default function InterestCalculator() {
           </Card>
         )}
 
-        <Card className="mb-4 bg-gray-800 border-gray-700">
+        <Card className="mb-4 ">
           <CardHeader>
-            <CardTitle className="text-center text-yellow-400">
+            <CardTitle className="text-center text-primary">
               💡 이자 계산 설명
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-gray-300">
+          <CardContent className="space-y-3 text-muted-foreground">
             {interestType === "simple" ? (
               <>
-                <div className="p-3 bg-gray-700 rounded-lg">
-                  <h4 className="font-semibold text-yellow-300 mb-2">단리 이자란?</h4>
+                <div className="p-3 bg-muted rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2">
+                    단리 이자란?
+                  </h4>
                   <p className="text-sm">
                     원금에 대해서만 이자가 계산되는 방식입니다.
                   </p>
                 </div>
-                <div className="p-3 bg-gray-700 rounded-lg">
-                  <h4 className="font-semibold text-yellow-300 mb-2">계산 공식</h4>
+                <div className="p-3 bg-muted rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2">계산 공식</h4>
                   <p className="text-sm">
-                    <strong>이자 = 원금 × 이자율 × 기간</strong><br/>
-                    총 금액 = 원금 + 이자
+                    <strong>이자 = 원금 × 이자율 × 기간</strong>
+                    <br />총 금액 = 원금 + 이자
                   </p>
                 </div>
               </>
             ) : (
               <>
-                <div className="p-3 bg-gray-700 rounded-lg">
-                  <h4 className="font-semibold text-yellow-300 mb-2">복리 이자란?</h4>
+                <div className="p-3 bg-muted rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2">
+                    복리 이자란?
+                  </h4>
                   <p className="text-sm">
-                    원금과 이전에 발생한 이자를 합한 금액에 대해 이자가 계산되는 방식입니다.
+                    원금과 이전에 발생한 이자를 합한 금액에 대해 이자가 계산되는
+                    방식입니다.
                   </p>
                 </div>
-                <div className="p-3 bg-gray-700 rounded-lg">
-                  <h4 className="font-semibold text-yellow-300 mb-2">계산 공식</h4>
+                <div className="p-3 bg-muted rounded-lg">
+                  <h4 className="font-semibold text-primary mb-2">계산 공식</h4>
                   <p className="text-sm">
-                    <strong>총 금액 = 원금 × (1 + 이자율/복리횟수)^(복리횟수×기간)</strong><br/>
+                    <strong>
+                      총 금액 = 원금 × (1 + 이자율/복리횟수)^(복리횟수×기간)
+                    </strong>
+                    <br />
                     이자 = 총 금액 - 원금
                   </p>
                 </div>
               </>
             )}
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="font-semibold text-yellow-300 mb-2">활용 예시</h4>
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="font-semibold text-primary mb-2">활용 예시</h4>
               <ul className="text-sm space-y-1">
                 <li>• 예금 이자 계산</li>
                 <li>• 대출 이자 계산</li>

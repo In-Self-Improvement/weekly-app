@@ -141,11 +141,13 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-4xl mx-auto pt-8">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">Weekly Apps</h1>
-          <p className="text-gray-600 text-lg">
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Weekly Apps
+          </h1>
+          <p className="text-muted-foreground text-lg">
             유용한 앱들을 한 곳에서 만나보세요
           </p>
         </div>
@@ -165,7 +167,7 @@ export default function HomePage() {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-500 text-sm">
+          <p className="text-muted-foreground text-sm">
             더 많은 앱들이 추가될 예정입니다
           </p>
         </div>

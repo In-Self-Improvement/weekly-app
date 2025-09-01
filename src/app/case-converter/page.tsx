@@ -30,34 +30,34 @@ export default function CaseConverter() {
       title: "첫 글자만 대문자",
       description: "Capitalize",
       result: inputText ? capitalize(inputText) : "",
-      color: "text-blue-600",
-      bgColor: "bg-blue-50 border-blue-200",
+      color: "text-primary",
+      bgColor: "bg-card border-border",
     },
     {
       title: "모두 대문자",
       description: "UPPERCASE",
       result: inputText.toUpperCase(),
-      color: "text-green-600",
-      bgColor: "bg-green-50 border-green-200",
+      color: "text-primary",
+      bgColor: "bg-card border-border",
     },
     {
       title: "모두 소문자",
       description: "lowercase",
       result: inputText.toLowerCase(),
-      color: "text-purple-600",
-      bgColor: "bg-purple-50 border-purple-200",
+      color: "text-primary",
+      bgColor: "bg-card border-border",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 px-4 py-10">
+    <div className="min-h-screen bg-background px-4 py-10">
       <div className="max-w-md mx-auto pt-8">
         {/* 헤더 */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             영어 대소문자 변환기
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground">
             영어 텍스트의 대소문자를 간편하게 변환하세요
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function CaseConverter() {
         {/* 입력 영역 */}
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-center text-indigo-700">
+            <CardTitle className="text-center text-primary">
               ✏️ 텍스트 입력
             </CardTitle>
             <CardDescription className="text-center">
@@ -77,7 +77,7 @@ export default function CaseConverter() {
               placeholder="영어 텍스트를 입력하세요..."
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              className="w-full min-h-[120px] px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-lg resize-none"
+              className="w-full min-h-[120px] px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-lg resize-none"
             />
           </CardContent>
         </Card>
@@ -91,13 +91,13 @@ export default function CaseConverter() {
                   <CardTitle className={`text-lg ${conversion.color}`}>
                     {conversion.title}
                   </CardTitle>
-                  <CardDescription className="text-sm text-gray-500">
+                  <CardDescription className="text-sm text-muted-foreground">
                     {conversion.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-white p-4 rounded-lg border border-gray-200 mb-3">
-                    <p className="text-lg break-all">
+                  <div className="bg-card p-4 rounded-lg border border-border mb-3">
+                    <p className="text-lg break-all text-card-foreground">
                       {conversion.result || "결과가 없습니다"}
                     </p>
                   </div>
@@ -105,8 +105,8 @@ export default function CaseConverter() {
                     onClick={() => copyToClipboard(conversion.result, index)}
                     className={`w-full h-10 transition-all duration-300 ${
                       copiedIndex === index
-                        ? "bg-green-500 hover:bg-green-600"
-                        : "bg-gray-600 hover:bg-gray-700"
+                        ? "bg-green-500 hover:bg-green-600 text-white"
+                        : ""
                     }`}
                     disabled={!conversion.result}
                   >
@@ -130,9 +130,9 @@ export default function CaseConverter() {
 
         {/* 안내 메시지 */}
         {!inputText && (
-          <Card className="bg-gray-50 border-gray-200">
+          <Card className="bg-muted/50">
             <CardContent className="pt-6">
-              <div className="text-center text-gray-500">
+              <div className="text-center text-muted-foreground">
                 <p className="mb-2">🔤</p>
                 <p>텍스트를 입력하면 자동으로 변환 결과가 표시됩니다</p>
               </div>

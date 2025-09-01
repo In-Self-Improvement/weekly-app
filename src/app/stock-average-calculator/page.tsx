@@ -97,32 +97,34 @@ export default function StockAverageCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black p-4">
+    <div className="min-h-screen bg-background p-4">
       <div className="max-w-md mx-auto pt-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
             📈 물타기 계산기
           </h1>
-          <p className="text-gray-300">주식/코인 평균 매수가를 계산해보세요</p>
+          <p className="text-muted-foreground">
+            주식/코인 평균 매수가를 계산해보세요
+          </p>
         </div>
 
-        <Card className="mb-4 bg-gray-800 border-gray-700">
+        <Card className="mb-4 ">
           <CardHeader>
-            <CardTitle className="text-center text-blue-400">
+            <CardTitle className="text-center text-primary">
               📊 매수 정보 입력
             </CardTitle>
-            <CardDescription className="text-center text-gray-400">
+            <CardDescription className="text-center text-muted-foreground">
               두 번의 매수 정보를 입력하면 자동으로 계산됩니다
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="text-sm font-medium text-blue-300 mb-2">
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="text-sm font-medium text-primary mb-2">
                 1차 매수
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1">
+                  <label className="block text-xs text-muted-foreground mb-1">
                     가격
                   </label>
                   <input
@@ -131,11 +133,11 @@ export default function StockAverageCalculator() {
                     placeholder="매수가"
                     value={firstPrice}
                     onChange={(e) => setFirstPrice(e.target.value)}
-                    className="w-full px-2 py-2 bg-gray-600 border border-gray-500 rounded text-center text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full px-2 py-2 bg-background border border-input rounded text-center text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1">
+                  <label className="block text-xs text-muted-foreground mb-1">
                     수량
                   </label>
                   <input
@@ -144,19 +146,19 @@ export default function StockAverageCalculator() {
                     placeholder="수량"
                     value={firstQuantity}
                     onChange={(e) => setFirstQuantity(e.target.value)}
-                    className="w-full px-2 py-2 bg-gray-600 border border-gray-500 rounded text-center text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full px-2 py-2 bg-background border border-input rounded text-center text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="text-sm font-medium text-blue-300 mb-2">
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="text-sm font-medium text-primary mb-2">
                 2차 매수 (물타기)
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1">
+                  <label className="block text-xs text-muted-foreground mb-1">
                     가격
                   </label>
                   <input
@@ -165,11 +167,11 @@ export default function StockAverageCalculator() {
                     placeholder="매수가"
                     value={secondPrice}
                     onChange={(e) => setSecondPrice(e.target.value)}
-                    className="w-full px-2 py-2 bg-gray-600 border border-gray-500 rounded text-center text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full px-2 py-2 bg-background border border-input rounded text-center text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs text-gray-400 mb-1">
+                  <label className="block text-xs text-muted-foreground mb-1">
                     수량
                   </label>
                   <input
@@ -178,14 +180,14 @@ export default function StockAverageCalculator() {
                     placeholder="수량"
                     value={secondQuantity}
                     onChange={(e) => setSecondQuantity(e.target.value)}
-                    className="w-full px-2 py-2 bg-gray-600 border border-gray-500 rounded text-center text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                    className="w-full px-2 py-2 bg-background border border-input rounded text-center text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="text-sm font-medium text-blue-300 mb-2">
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="text-sm font-medium text-primary mb-2">
                 현재가 (수익률 계산용)
               </h4>
               <input
@@ -194,68 +196,64 @@ export default function StockAverageCalculator() {
                 placeholder="현재 시세"
                 value={currentPrice}
                 onChange={(e) => setCurrentPrice(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-600 border border-gray-500 rounded text-center text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-background border border-input rounded text-center text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
               />
             </div>
           </CardContent>
         </Card>
 
         <div className="mb-4">
-          <Button
-            variant="outline"
-            onClick={reset}
-            className="w-full h-10 border-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white"
-          >
+          <Button variant="outline" onClick={reset} className="w-full h-10">
             초기화
           </Button>
         </div>
 
         {result && (
-          <Card className="mb-4 bg-gradient-to-r from-blue-900 to-blue-800 border-blue-600">
+          <Card className="mb-4 ">
             <CardHeader>
-              <CardTitle className="text-center text-blue-200">
+              <CardTitle className="text-center text-foreground">
                 📊 계산 결과
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="text-center">
-                  <div className="text-sm text-blue-300 mb-1">총 투자금액</div>
-                  <div className="text-lg font-bold text-blue-100">
+                  <div className="text-sm text-primary mb-1">총 투자금액</div>
+                  <div className="text-lg font-bold text-foreground">
                     {formatCurrency(result.totalCost)}원
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-sm text-blue-300 mb-1">총 보유수량</div>
-                  <div className="text-lg font-bold text-blue-100">
+                  <div className="text-sm text-primary mb-1">총 보유수량</div>
+                  <div className="text-lg font-bold text-foreground">
                     {formatNumber(result.totalQuantity)}개
                   </div>
                 </div>
               </div>
-              <div className="text-center pt-4 border-t border-blue-600">
-                <div className="text-sm text-blue-300 mb-1">평균 매수가</div>
-                <div className="text-2xl font-bold text-blue-100">
+              <div className="text-center pt-4 border-t border-border">
+                <div className="text-sm text-primary mb-1">평균 매수가</div>
+                <div className="text-2xl font-bold text-foreground">
                   {formatNumber(result.averagePrice)}원
                 </div>
               </div>
 
               {result.currentPrice !== undefined &&
                 result.profitLossPercentage !== undefined && (
-                  <div className="text-center pt-4 border-t border-blue-600">
-                    <div className="text-sm text-blue-300 mb-1">
+                  <div className="text-center pt-4 border-t border-border">
+                    <div className="text-sm text-primary mb-1">
                       현재가 기준 수익률
                     </div>
                     <div
                       className={`text-xl font-bold ${
                         result.profitLossPercentage >= 0
-                          ? "text-red-400"
-                          : "text-blue-400"
+                          ? "text-green-600"
+                          : "text-red-600"
                       }`}
                     >
                       {result.profitLossPercentage >= 0 ? "+" : ""}
                       {formatNumber(result.profitLossPercentage)}%
                     </div>
-                    <div className="text-sm text-blue-300 mt-1">
+                    <div className="text-sm text-primary mt-1">
                       현재가: {formatNumber(result.currentPrice)}원
                     </div>
                   </div>
@@ -264,32 +262,30 @@ export default function StockAverageCalculator() {
           </Card>
         )}
 
-        <Card className="mb-4 bg-gray-800 border-gray-700">
+        <Card className="mb-4 ">
           <CardHeader>
-            <CardTitle className="text-center text-blue-400">
+            <CardTitle className="text-center text-primary">
               💡 물타기란?
             </CardTitle>
           </CardHeader>
-          <CardContent className="space-y-3 text-gray-300">
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="font-semibold text-blue-300 mb-2">
-                물타기의 개념
-              </h4>
+          <CardContent className="space-y-3 text-muted-foreground">
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="font-semibold text-primary mb-2">물타기의 개념</h4>
               <p className="text-sm">
                 주식이나 코인 가격이 하락했을 때 추가로 매수하여 평균 매수가를
                 낮추는 투자 전략입니다.
               </p>
             </div>
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="font-semibold text-blue-300 mb-2">계산 방법</h4>
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="font-semibold text-primary mb-2">계산 방법</h4>
               <p className="text-sm">
                 <strong>평균 매수가 = 총 투자금액 ÷ 총 보유수량</strong>
                 <br />각 매수의 (가격 × 수량)을 모두 더한 후 총 수량으로
                 나눕니다.
               </p>
             </div>
-            <div className="p-3 bg-gray-700 rounded-lg">
-              <h4 className="font-semibold text-blue-300 mb-2">주의사항</h4>
+            <div className="p-3 bg-muted rounded-lg">
+              <h4 className="font-semibold text-primary mb-2">주의사항</h4>
               <ul className="text-sm space-y-1">
                 <li>• 하락 추세가 지속될 수 있습니다</li>
                 <li>• 투자 자금 관리가 중요합니다</li>
