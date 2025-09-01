@@ -56,7 +56,7 @@ module.exports = {
       loc: path,
       changefreq: config.changefreq,
       priority,
-      lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
+      lastmod: new Date().toISOString().split('.')[0] + 'Z', // 네이버 호환 날짜 형식
       alternateRefs: config.alternateRefs ?? [],
     };
   },
