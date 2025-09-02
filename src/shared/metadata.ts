@@ -449,6 +449,30 @@ export const pageMetadata: Record<string, PageMetadata> = {
       images: ["/og-image.png"],
     },
   },
+  "/retirement-calculator": {
+    title: "퇴직금 계산기 - 예상 퇴직금 실수령액 계산",
+    description:
+      "내 퇴직금 얼마나 받을까? 근속기간과 평균임금으로 퇴직금을 정확히 계산! 퇴직소득세 자동 계산으로 실수령액까지 확인. 상여금, 연차수당 포함 정확한 계산.",
+    keywords: [
+      "퇴직금 계산기",
+      "퇴직금 계산",
+      "예상 퇴직금",
+      "퇴직금 실수령액",
+      "퇴직소득세 계산",
+      "근속연수 계산",
+      "평균임금 계산",
+      "퇴직금 세금",
+      "퇴직연금 계산",
+      "퇴직급여 계산",
+    ],
+    openGraph: {
+      title: "퇴직금 계산기 - 실수령액까지 정확 계산",
+      description:
+        "근속기간과 평균임금으로 퇴직금 예상! 퇴직소득세 자동 계산으로 실수령액 확인.",
+      url: "/retirement-calculator",
+      images: ["/og-image.png"],
+    },
+  },
 };
 
 export function generateMetadata(pathname: string): Metadata {

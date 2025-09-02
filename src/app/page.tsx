@@ -138,6 +138,14 @@ export default function HomePage() {
       href: "/installment-calculator",
       gradient: "bg-gradient-to-br from-gray-800 to-black",
     },
+    {
+      id: "retirement-calculator",
+      name: "퇴직금 계산기",
+      description: "근속기간과 평균임금으로 예상 퇴직금과 실수령액을 계산하세요",
+      icon: "💰",
+      href: "/retirement-calculator",
+      gradient: "bg-gradient-to-br from-emerald-600 to-teal-700",
+    },
   ];
 
   return (
