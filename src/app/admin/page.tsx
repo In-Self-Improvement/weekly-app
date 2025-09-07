@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { supabase, type AppRequest } from "@/lib/supabase";
-import { Loader2, Trash2, Edit } from "lucide-react";
+import { Loader2, Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function AdminPage() {
@@ -14,7 +14,16 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const router = useRouter();
 
-  const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+  // 클라이언트에서는 서버 API를 통해 인증
+  // const ADMIN_PASSWORD는 제거 - 보안상 클라이언트에서 처리하지 않음
+  useEffect(() => {
+    // 페이지 로드 시 세션 확인
+    const savedSession = sessionStorage.getItem("admin_session");
+    if (savedSession === "authenticated") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchRequests();
@@ -36,33 +45,83 @@ export default function AdminPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 환경변수로 숨겨진 비밀번호 (빌드 시에만 접근 가능)
+    const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
+
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
+      // 세션 스토리지에 임시 저장 (새로고침 시 유지)
+      sessionStorage.setItem("admin_session", "authenticated");
     } else {
       alert("비밀번호가 틀렸습니다.");
     }
   };
 
   const updateStatus = async (id: string, newStatus: string) => {
-    const { error } = await supabase
-      .from("app_requests")
-      .update({ status: newStatus })
-      .eq("id", id);
+    // 권한 재확인
+    if (!isAuthenticated) {
+      alert("관리자 권한이 필요합니다.");
+      return;
+    }
 
-    if (!error) {
-      fetchRequests();
+    try {
+      const { error } = await supabase
+        .from("app_requests")
+        .update({ status: newStatus })
+        .eq("id", id);
+
+      if (error) {
+        console.error("Update failed:", error);
+        alert("상태 업데이트에 실패했습니다: " + error.message);
+
+        // 인증 오류인 경우 로그아웃 처리
+        if (
+          error.message.includes("permission") ||
+          error.message.includes("unauthorized")
+        ) {
+          setIsAuthenticated(false);
+        }
+      } else {
+        fetchRequests();
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+      alert("네트워크 오류가 발생했습니다.");
     }
   };
 
   const deleteRequest = async (id: string) => {
-    if (confirm("정말 삭제하시겠습니까?")) {
-      const { error } = await supabase
-        .from("app_requests")
-        .delete()
-        .eq("id", id);
+    // 권한 재확인
+    if (!isAuthenticated) {
+      alert("관리자 권한이 필요합니다.");
+      return;
+    }
 
-      if (!error) {
-        fetchRequests();
+    if (confirm("정말 삭제하시겠습니까?")) {
+      try {
+        const { error } = await supabase
+          .from("app_requests")
+          .delete()
+          .eq("id", id);
+
+        if (error) {
+          console.error("Delete failed:", error);
+          alert("삭제에 실패했습니다: " + error.message);
+
+          // 인증 오류인 경우 로그아웃 처리
+          if (
+            error.message.includes("permission") ||
+            error.message.includes("unauthorized")
+          ) {
+            setIsAuthenticated(false);
+          }
+        } else {
+          fetchRequests();
+        }
+      } catch (error) {
+        console.error("Network error:", error);
+        alert("네트워크 오류가 발생했습니다.");
       }
     }
   };
