@@ -1,185 +1,308 @@
-import AppCard from "@/components/AppCard";
+"use client";
 
-export default function HomePage() {
-  const apps = [
-    {
-      id: "weather",
-      name: "날씨 & 옷차림",
-      description: "현재 위치의 날씨와 추천 옷차림을 확인하세요",
-      icon: "🌤️",
-      href: "/weather",
-      gradient: "bg-gradient-to-br from-blue-500 to-indigo-600",
-    },
-    {
-      id: "quickwin",
-      name: "QuickWin",
-      description: "간단한 할일로 성취감을 느껴보세요",
-      icon: "🎯",
-      href: "/quickwin",
-      gradient: "bg-gradient-to-br from-green-500 to-teal-600",
-    },
-    {
-      id: "ladder",
-      name: "사다리타기",
-      description: "공정한 선택을 위한 사다리타기 게임",
-      icon: "🪜",
-      href: "/ladder",
-      gradient: "bg-gradient-to-br from-purple-500 to-pink-600",
-    },
-    {
-      id: "bmi",
-      name: "BMI 계산기",
-      description: "키와 몸무게로 체질량지수를 계산하고 건강 상태를 확인하세요",
-      icon: "📏",
-      href: "/bmi",
-      gradient: "bg-gradient-to-br from-rose-500 to-orange-600",
-    },
-    {
-      id: "age",
-      name: "나이 계산기",
-      description: "생년월일로 정확한 나이와 생일까지 남은 날을 계산하세요",
-      icon: "🎂",
-      href: "/age",
-      gradient: "bg-gradient-to-br from-cyan-500 to-blue-600",
-    },
-    {
-      id: "compound-interest",
-      name: "복리 계산기",
-      description: "투자의 마법, 복리 효과를 미리 체험해보세요",
-      icon: "💰",
-      href: "/compound-interest",
-      gradient: "bg-gradient-to-br from-emerald-500 to-teal-600",
-    },
-    {
-      id: "conversion",
-      name: "평수 변환기",
-      description: "평수와 제곱미터를 쉽게 변환하세요",
-      icon: "🏠",
-      href: "/conversion",
-      gradient: "bg-gradient-to-br from-orange-500 to-red-600",
-    },
-    {
-      id: "percent",
-      name: "퍼센트 계산기",
-      description: "다양한 퍼센트 계산을 간편하게 수행하세요",
-      icon: "📊",
-      href: "/percent",
-      gradient: "bg-gradient-to-br from-slate-700 to-black",
-    },
-    {
-      id: "vat-calculator",
-      name: "부가세 계산기",
-      description: "공급가액과 부가세 포함 금액을 정확하게 계산하세요",
-      icon: "🧮",
-      href: "/vat-calculator",
-      gradient: "bg-gradient-to-br from-gray-800 to-black",
-    },
-    {
-      id: "dday",
-      name: "디데이 계산기",
-      description: "중요한 날까지 남은 시간을 계산하고 계획을 세워보세요",
-      icon: "📅",
-      href: "/dday",
-      gradient: "bg-gradient-to-br from-gray-800 to-black",
-    },
-    {
-      id: "gpa",
-      name: "학점 계산기",
-      description: "과목별 성적과 학점으로 평균 평점(GPA)을 계산하세요",
-      icon: "🎓",
-      href: "/gpa",
-      gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
-    },
-    {
-      id: "fraction-calculator",
-      name: "분수 계산기",
-      description: "분수의 사칙연산을 쉽게 계산하고 기약분수로 변환하세요",
-      icon: "➗",
-      href: "/fraction-calculator",
-      gradient: "bg-gradient-to-br from-slate-700 to-black",
-    },
-    {
-      id: "interest-calculator",
-      name: "이자 계산기",
-      description: "단리와 복리 이자를 계산하여 투자 계획을 세워보세요",
-      icon: "💰",
-      href: "/interest-calculator",
-      gradient: "bg-gradient-to-br from-yellow-600 to-black",
-    },
-    {
-      id: "stock-average-calculator",
-      name: "물타기 계산기",
-      description: "주식/코인 평균 매수가를 계산하고 수익률을 확인하세요",
-      icon: "📈",
-      href: "/stock-average-calculator",
-      gradient: "bg-gradient-to-br from-blue-600 to-black",
-    },
-    {
-      id: "character-counter",
-      name: "글자수 세기",
-      description: "텍스트의 글자수, 단어수, 문단수를 정확하게 계산하세요",
-      icon: "📝",
-      href: "/character-counter",
-      gradient: "bg-gradient-to-br from-gray-800 to-black",
-    },
-    {
-      id: "case-converter",
-      name: "영어 대소문자 변환기",
-      description: "영어 텍스트의 대소문자를 간편하게 변환하세요",
-      icon: "🔤",
-      href: "/case-converter",
-      gradient: "bg-gradient-to-br from-indigo-500 to-purple-600",
-    },
-    {
-      id: "installment-calculator",
-      name: "할부 계산기",
-      description: "여러 카드의 할부 조건을 비교하고 최적의 선택을 하세요",
-      icon: "💳",
-      href: "/installment-calculator",
-      gradient: "bg-gradient-to-br from-gray-800 to-black",
-    },
-    {
-      id: "retirement-calculator",
-      name: "퇴직금 계산기",
-      description: "근속기간과 평균임금으로 예상 퇴직금과 실수령액을 계산하세요",
-      icon: "💰",
-      href: "/retirement-calculator",
-      gradient: "bg-gradient-to-br from-emerald-600 to-teal-700",
-    },
-  ];
+import { useState, useEffect } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { supabase, type AppRequest } from "@/lib/supabase";
+import { ArrowRight, ThumbsUp, Loader2 } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
+
+export default function RequestPage() {
+  const [requestText, setRequestText] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [requests, setRequests] = useState<AppRequest[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [votedRequests, setVotedRequests] = useState<Set<string>>(new Set());
+  const [voteTimestamps, setVoteTimestamps] = useState<Map<string, number>>(
+    new Map()
+  );
+
+  // 로컬 스토리지에서 투표 기록 불러오기
+  useEffect(() => {
+    const voted = localStorage.getItem("votedRequests");
+    const timestamps = localStorage.getItem("voteTimestamps");
+
+    if (voted) {
+      setVotedRequests(new Set(JSON.parse(voted)));
+    }
+    if (timestamps) {
+      setVoteTimestamps(new Map(JSON.parse(timestamps)));
+    }
+
+    fetchRequests();
+  }, []);
+
+  const fetchRequests = async () => {
+    setIsLoading(true);
+    const { data, error } = await supabase
+      .from("app_requests")
+      .select("*")
+      .order("votes", { ascending: false })
+      .order("created_at", { ascending: false });
+
+    if (!error && data) {
+      setRequests(data);
+    }
+    setIsLoading(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!requestText.trim()) return;
+
+    setIsSubmitting(true);
+    const { error } = await supabase.from("app_requests").insert({
+      request_text: requestText.trim(),
+      user_email: userEmail.trim() || null,
+    });
+
+    if (!error) {
+      setRequestText("");
+      setUserEmail("");
+      fetchRequests();
+      toast.success("요청이 성공적으로 제출되었습니다! 🎉");
+    } else {
+      toast.error("요청 제출에 실패했습니다. 다시 시도해주세요.");
+    }
+    setIsSubmitting(false);
+  };
+
+  const handleVote = async (requestId: string) => {
+    // 기존 투표 확인
+    if (votedRequests.has(requestId)) {
+      toast.error("이미 투표한 요청입니다! 🗳️");
+      return;
+    }
+
+    // 속도 제한 확인 (5초 이내 연속 투표 방지)
+    const now = Date.now();
+    const lastVoteTime = Array.from(voteTimestamps.values()).pop() || 0;
+    if (now - lastVoteTime < 5000) {
+      toast.error("너무 빠른 투표입니다. 잠시 후 시도해주세요! ⏱️");
+      return;
+    }
+
+    // 투표수 증가
+    const { error: updateError } = await supabase
+      .rpc("increment", {
+        row_id: requestId,
+        column_name: "votes",
+        table_name: "app_requests",
+      })
+      .single();
+
+    // RPC가 없는 경우 대체 방법
+    if (updateError) {
+      const { data: currentData } = await supabase
+        .from("app_requests")
+        .select("votes")
+        .eq("id", requestId)
+        .single();
+
+      if (currentData) {
+        await supabase
+          .from("app_requests")
+          .update({ votes: currentData.votes + 1 })
+          .eq("id", requestId);
+      }
+    }
+
+    // 로컬 스토리지에 투표 기록 저장
+    // 투표 기록 업데이트
+    const newVoted = new Set(votedRequests);
+    newVoted.add(requestId);
+    setVotedRequests(newVoted);
+
+    const newTimestamps = new Map(voteTimestamps);
+    newTimestamps.set(requestId, now);
+    setVoteTimestamps(newTimestamps);
+
+    // 로컬 저장소 업데이트
+    localStorage.setItem("votedRequests", JSON.stringify(Array.from(newVoted)));
+    localStorage.setItem(
+      "voteTimestamps",
+      JSON.stringify(Array.from(newTimestamps.entries()))
+    );
+
+    toast.success("투표가 완료되었습니다! 👍");
+
+    fetchRequests();
+  };
+
+  const getStatusBadge = (status: string) => {
+    const statusStyles = {
+      pending: "bg-gray-100 text-gray-700",
+      in_review: "bg-blue-100 text-blue-700",
+      in_progress: "bg-yellow-100 text-yellow-700",
+      completed: "bg-green-100 text-green-700",
+      rejected: "bg-red-100 text-red-700",
+    };
+
+    const statusLabels = {
+      pending: "검토 대기",
+      in_review: "검토 중",
+      in_progress: "개발 중",
+      completed: "완료",
+      rejected: "반려",
+    };
+
+    return (
+      <span
+        className={`px-2 py-1 rounded-full text-xs font-medium ${
+          statusStyles[status as keyof typeof statusStyles]
+        }`}
+      >
+        {statusLabels[status as keyof typeof statusLabels]}
+      </span>
+    );
+  };
 
   return (
-    <div className="min-h-screen bg-background p-4">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 p-4">
       <div className="max-w-4xl mx-auto pt-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Weekly Apps
+        {/* 헤더 */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+            🚀 Weekly Apps
           </h1>
-          <p className="text-muted-foreground text-lg">
-            유용한 앱들을 한 곳에서 만나보세요
+          <p className="text-gray-600 mb-4">
+            어떤 앱이 필요하신가요? 여러분의 아이디어를 들려주세요!
           </p>
+          <Link href="/dashboard">
+            <Button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700">
+              현재 앱 둘러보기 <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {apps.map((app) => (
-            <AppCard
-              key={app.id}
-              id={app.id}
-              name={app.name}
-              description={app.description}
-              icon={app.icon}
-              href={app.href}
-              gradient={app.gradient}
-            />
-          ))}
-        </div>
+        {/* 요청 폼 */}
+        <Card className="mb-8">
+          <CardHeader>
+            <CardTitle>💡 새로운 앱 요청하기</CardTitle>
+            <CardDescription>
+              필요한 앱이나 기능을 자유롭게 요청해주세요
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <textarea
+                  value={requestText}
+                  onChange={(e) => setRequestText(e.target.value)}
+                  placeholder="예: 포모도로 타이머 앱이 있으면 좋겠어요..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  rows={4}
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                  placeholder="이메일 (선택사항 - 개발 완료 시 알림)"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                />
+              </div>
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    제출 중...
+                  </>
+                ) : (
+                  "요청 제출하기"
+                )}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground text-sm">
-            더 많은 앱들이 추가될 예정입니다
-          </p>
+        {/* 요청 목록 */}
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            📋 요청된 앱 목록
+          </h2>
+
+          {isLoading ? (
+            <div className="text-center py-8">
+              <Loader2 className="h-8 w-8 animate-spin mx-auto text-indigo-500" />
+            </div>
+          ) : requests.length === 0 ? (
+            <Card>
+              <CardContent className="text-center py-8 text-gray-500">
+                아직 요청된 앱이 없습니다. 첫 번째 요청자가 되어보세요!
+              </CardContent>
+            </Card>
+          ) : (
+            requests.map((request) => (
+              <Card
+                key={request.id}
+                className="hover:shadow-lg transition-shadow"
+              >
+                <CardContent className="pt-6">
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="flex-1">
+                      <p className="text-gray-800 mb-2">
+                        {request.request_text}
+                      </p>
+                      <div className="flex items-center gap-4 text-sm text-gray-500">
+                        <span>
+                          {new Date(request.created_at).toLocaleDateString(
+                            "ko-KR"
+                          )}
+                        </span>
+                        {getStatusBadge(request.status)}
+                      </div>
+                    </div>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleVote(request.id)}
+                      disabled={votedRequests.has(request.id)}
+                      className={
+                        votedRequests.has(request.id)
+                          ? "opacity-50 cursor-not-allowed"
+                          : ""
+                      }
+                    >
+                      <ThumbsUp className="h-4 w-4 mr-1" />
+                      {request.votes}
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))
+          )}
         </div>
       </div>
+
+      {/* Toast 알림 */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#fff",
+            color: "#333",
+            border: "1px solid #e5e7eb",
+            borderRadius: "8px",
+            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          },
+        }}
+      />
     </div>
   );
 }
