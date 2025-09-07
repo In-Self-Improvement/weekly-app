@@ -15,7 +15,6 @@ export default function AdminPage() {
   const router = useRouter();
 
   const ADMIN_PASSWORD = process.env.NEXT_PUBLIC_ADMIN_PASSWORD;
-  console.log(ADMIN_PASSWORD);
   useEffect(() => {
     if (isAuthenticated) {
       fetchRequests();
