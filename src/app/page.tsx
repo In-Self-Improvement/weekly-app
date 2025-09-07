@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { supabase, type AppRequest } from "@/lib/supabase";
 import { ArrowRight, ThumbsUp, Loader2 } from "lucide-react";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function RequestPage() {
   const [requestText, setRequestText] = useState("");
@@ -20,13 +21,22 @@ export default function RequestPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [votedRequests, setVotedRequests] = useState<Set<string>>(new Set());
+  const [voteTimestamps, setVoteTimestamps] = useState<Map<string, number>>(
+    new Map()
+  );
 
   // 로컬 스토리지에서 투표 기록 불러오기
   useEffect(() => {
     const voted = localStorage.getItem("votedRequests");
+    const timestamps = localStorage.getItem("voteTimestamps");
+
     if (voted) {
       setVotedRequests(new Set(JSON.parse(voted)));
     }
+    if (timestamps) {
+      setVoteTimestamps(new Map(JSON.parse(timestamps)));
+    }
+
     fetchRequests();
   }, []);
 
@@ -58,16 +68,25 @@ export default function RequestPage() {
       setRequestText("");
       setUserEmail("");
       fetchRequests();
-      alert("요청이 성공적으로 제출되었습니다!");
+      toast.success("요청이 성공적으로 제출되었습니다! 🎉");
     } else {
-      alert("요청 제출에 실패했습니다. 다시 시도해주세요.");
+      toast.error("요청 제출에 실패했습니다. 다시 시도해주세요.");
     }
     setIsSubmitting(false);
   };
 
   const handleVote = async (requestId: string) => {
+    // 기존 투표 확인
     if (votedRequests.has(requestId)) {
-      alert("이미 투표한 요청입니다.");
+      toast.error("이미 투표한 요청입니다! 🗳️");
+      return;
+    }
+
+    // 속도 제한 확인 (5초 이내 연속 투표 방지)
+    const now = Date.now();
+    const lastVoteTime = Array.from(voteTimestamps.values()).pop() || 0;
+    if (now - lastVoteTime < 5000) {
+      toast.error("너무 빠른 투표입니다. 잠시 후 시도해주세요! ⏱️");
       return;
     }
 
@@ -97,10 +116,23 @@ export default function RequestPage() {
     }
 
     // 로컬 스토리지에 투표 기록 저장
+    // 투표 기록 업데이트
     const newVoted = new Set(votedRequests);
     newVoted.add(requestId);
     setVotedRequests(newVoted);
+
+    const newTimestamps = new Map(voteTimestamps);
+    newTimestamps.set(requestId, now);
+    setVoteTimestamps(newTimestamps);
+
+    // 로컬 저장소 업데이트
     localStorage.setItem("votedRequests", JSON.stringify(Array.from(newVoted)));
+    localStorage.setItem(
+      "voteTimestamps",
+      JSON.stringify(Array.from(newTimestamps.entries()))
+    );
+
+    toast.success("투표가 완료되었습니다! 👍");
 
     fetchRequests();
   };
@@ -256,6 +288,21 @@ export default function RequestPage() {
           )}
         </div>
       </div>
+
+      {/* Toast 알림 */}
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#fff",
+            color: "#333",
+            border: "1px solid #e5e7eb",
+            borderRadius: "8px",
+            boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+          },
+        }}
+      />
     </div>
   );
 }
