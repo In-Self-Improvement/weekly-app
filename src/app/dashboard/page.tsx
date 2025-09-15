@@ -147,6 +147,14 @@ export default function DashboardPage() {
       href: "/retirement-calculator",
       gradient: "bg-gradient-to-br from-emerald-600 to-teal-700",
     },
+    {
+      id: "pomodoro",
+      name: "뽀모도로 타이머",
+      description: "25분 집중, 5분 휴식으로 생산성을 높이세요",
+      icon: "🍅",
+      href: "/pomodoro",
+      gradient: "bg-gradient-to-br from-red-500 to-orange-600",
+    },
   ];
 
   return (
