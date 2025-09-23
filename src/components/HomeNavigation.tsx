@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { Button } from '@/components/ui/button';
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
 
 export default function HomeNavigation() {
   const pathname = usePathname();
-  
-  // 루트 페이지에서는 숨김
-  if (pathname === '/') {
+
+  // 루트 페이지와 Daily-One(하루 하나)에서는 숨김
+  if (pathname === "/" || pathname === "/daily-one") {
     return null;
   }
 
   const handleHomeClick = () => {
-    window.location.href = '/';
+    window.location.href = "/";
   };
 
   return (

@@ -1,6 +1,6 @@
 const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
+  output: "export",
+  trailingSlash: false,
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,
