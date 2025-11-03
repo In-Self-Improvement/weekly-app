@@ -18,7 +18,10 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(curl:*)",
-      "WebFetch(domain:weekly-app.net)"
+      "WebFetch(domain:weekly-app.net)",
+      "Bash(mkdir:*)",
+      "Bash(npm run lint)",
+      "Bash(npx tsc:*)"
     ],
     "deny": []
   }
