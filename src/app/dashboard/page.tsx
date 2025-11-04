@@ -155,6 +155,14 @@ export default function DashboardPage() {
       href: "/pomodoro",
       gradient: "bg-gradient-to-br from-red-500 to-orange-600",
     },
+    {
+      id: "survivor-game",
+      name: "서바이버 게임",
+      description: "5분간 생존하며 적을 물리치세요! 뱀파이어 서바이버 스타일",
+      icon: "🧛",
+      href: "/survivor-game",
+      gradient: "bg-gradient-to-br from-gray-800 to-purple-900",
+    },
   ];
 
   return (

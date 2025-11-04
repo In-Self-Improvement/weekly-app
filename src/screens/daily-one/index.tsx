@@ -103,9 +103,9 @@ const DailyOneScreen = () => {
   const currentStreak = calculateStreak();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 flex flex-col">
+        <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 flex flex-col">
       {/* 메인 콘텐츠 영역 */}
-      <div className="flex-1 p-4">
+      <div className="flex-1">
         <div className="max-w-md mx-auto pt-8">
           {/* 헤더 */}
           <div className="text-center mb-8">
