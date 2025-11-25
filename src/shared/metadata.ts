@@ -502,6 +502,32 @@ export const pageMetadata: Record<string, PageMetadata> = {
       images: ["/og-image.png"],
     },
   },
+  "/only-three": {
+    title: "하루 딱 3가지만 - OnlyThree | 미니멀 목표 트래커",
+    description:
+      "하루에 딱 3가지만 적으세요. 선택 마비 없이 가장 중요한 것에 집중하는 미니멀 목표 관리 앱. 스트릭으로 습관 만들기, 오프라인 지원, 무료 사용.",
+    keywords: [
+      "할일 관리 앱",
+      "미니멀 투두리스트",
+      "하루 3가지 목표",
+      "목표 트래커",
+      "습관 만들기",
+      "스트릭 앱",
+      "집중력 향상",
+      "선택 마비 해결",
+      "심플 투두",
+      "무료 목표 관리",
+      "오프라인 투두앱",
+      "OnlyThree",
+    ],
+    openGraph: {
+      title: "하루 딱 3가지만 - OnlyThree",
+      description:
+        "선택 마비 없이 가장 중요한 3가지에만 집중하세요. 미니멀하고 중독성 있는 목표 트래커.",
+      url: "/only-three",
+      images: ["/og-image.png"],
+    },
+  },
 };
 
 export function generateMetadata(pathname: string): Metadata {

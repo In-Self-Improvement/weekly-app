@@ -163,6 +163,15 @@ export default function DashboardPage() {
       href: "/survivor-game",
       gradient: "bg-gradient-to-br from-gray-800 to-purple-900",
     },
+    {
+      id: "only-three",
+      name: "하루 딱 3가지만",
+      description:
+        "하루에 딱 3가지만 적으세요. 선택 마비 없이 가장 중요한 것에 집중하는 미니멀 목표 관리 앱.",
+      icon: "🔥",
+      href: "/only-three",
+      gradient: "bg-gradient-to-br from-gray-800 to-purple-900",
+    },
   ];
 
   return (
