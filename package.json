@@ -15,6 +15,7 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/supabase-js": "^2.57.2",
     "@tailwindcss/postcss": "^4.1.11",
+    "canvas-confetti": "^1.9.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.525.0",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@shadcn/ui": "^0.0.4",
     "@svgr/webpack": "^8.1.0",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
