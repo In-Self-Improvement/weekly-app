@@ -1,18 +1,17 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import LevelUpModal, { UpgradeOption } from "./_components/level-up-modal";
 import DifficultyModal, {
   DifficultyOption,
   DifficultySettings,
 } from "./_components/difficulty-modal";
+import LevelUpModal, { UpgradeOption } from "./_components/level-up-modal";
 
-const GameContainer = dynamic(
-  () => import("./_components/game-container"),
-  { ssr: false }
-);
+const GameContainer = dynamic(() => import("./_components/game-container"), {
+  ssr: false,
+});
 
 interface WindowWithHandleLevelUp extends Window {
   handleLevelUp?: (level: number, options: UpgradeOption[]) => void;

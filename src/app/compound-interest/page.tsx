@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Calculator, Calendar, PiggyBank, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,8 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { TrendingUp, Calculator, Calendar, PiggyBank } from "lucide-react";
 
 interface CalculationResult {
   principal: number;

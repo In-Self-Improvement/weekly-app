@@ -1,6 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import Link from "next/link";
+import { ArrowRight, Loader2, ThumbsUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,11 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { supabase, type AppRequest } from "@/lib/supabase";
-import { ArrowRight, ThumbsUp, Loader2 } from "lucide-react";
-import toast, { Toaster } from "react-hot-toast";
+import { type AppRequest,supabase } from "@/lib/supabase";
 
 export default function RequestPage() {
   const [requestText, setRequestText] = useState("");

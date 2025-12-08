@@ -1,5 +1,5 @@
-import { generateMetadata } from "@/shared/metadata";
 import { Metadata } from "next";
+import { generateMetadata } from "@/shared/metadata";
 
 export const metadata: Metadata = generateMetadata("/only-three");
 

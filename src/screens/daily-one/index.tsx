@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,11 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import TaskCard from "./_components/task-card";
 import CelebrationAnimation from "./_components/celebration-animation";
-import { useStepGlow } from "./_hooks/useStepGlow";
+import TaskCard from "./_components/task-card";
 import { useSound } from "./_hooks/useSound";
+import { useStepGlow } from "./_hooks/useStepGlow";
 import { Task } from "./_types/taskType";
 
 const DailyOneScreen = () => {
@@ -103,7 +103,7 @@ const DailyOneScreen = () => {
   const currentStreak = calculateStreak();
 
   return (
-        <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-teal-100 flex flex-col">
       {/* 메인 콘텐츠 영역 */}
       <div className="flex-1">
         <div className="max-w-md mx-auto pt-8">

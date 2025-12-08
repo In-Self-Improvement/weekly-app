@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useSound } from "../../_hooks/useSound";
 import { Task } from "../../_types/taskType";
 import {
   categoryColors,
-  difficultyColors,
   categoryNames,
+  difficultyColors,
 } from "../../_utils/taskData";
-import { useSound } from "../../_hooks/useSound";
 
 interface TaskCardProps {
   task: Task;

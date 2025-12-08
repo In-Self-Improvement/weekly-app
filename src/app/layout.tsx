@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Sans_KR } from "next/font/google";
 import Script from "next/script";
-import "./globals.css";
 import HomeNavigation from "@/components/HomeNavigation";
 import { generateMetadata as generateSharedMetadata } from "@/shared/metadata";
+import "./globals.css";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -34,9 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body
-        className={`${notoSansKR.variable} font-sans antialiased`}
-      >
+      <body className={`${notoSansKR.variable} font-sans antialiased`}>
         {/* Google AdSense */}
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7789818762160521"

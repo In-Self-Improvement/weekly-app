@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const STORAGE_KEY = "only-three-dark-mode";
 
@@ -16,7 +16,9 @@ export function useDarkMode() {
       setIsDarkMode(stored === "true");
     } else {
       // 시스템 설정 확인
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
       setIsDarkMode(prefersDark);
     }
 
