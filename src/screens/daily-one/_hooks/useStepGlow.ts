@@ -1,14 +1,14 @@
 "use client";
 
 import { useCallback, useMemo } from "react";
-import { useLocalStorage, STORAGE_KEYS } from "./useLocalStorage";
 import {
-  Task,
   CompletedTask,
   DailyProgress,
+  Task,
   UserStats,
 } from "../_types/taskType";
 import { defaultTasks } from "../_utils/taskData";
+import { STORAGE_KEYS, useLocalStorage } from "./useLocalStorage";
 
 export function useStepGlow() {
   // LocalStorage 상태들
@@ -50,45 +50,48 @@ export function useStepGlow() {
   }, [dailyProgress, today]);
 
   // 랜덤 할 일 1개 선택 (오늘 완료하지 않은 것들 중에서, 또는 추가 할 일)
-  const getTodayTasks = useCallback((allowExtra: boolean = false): Task[] => {
-    const completedTaskIds = todayCompletedTasks.map((ct) => ct.taskId);
-    let availableTasks;
+  const getTodayTasks = useCallback(
+    (allowExtra: boolean = false): Task[] => {
+      const completedTaskIds = todayCompletedTasks.map((ct) => ct.taskId);
+      let availableTasks;
 
-    if (allowExtra) {
-      // 추가 할 일을 원하는 경우 - 완료 여부 상관없이 모든 할 일에서 선택
-      availableTasks = defaultTasks;
-    } else {
-      // 기본 모드 - 완료하지 않은 할 일만 선택
-      availableTasks = defaultTasks.filter(
-        (task) => !completedTaskIds.includes(task.id)
-      );
-    }
-
-    // 난이도별로 가중치를 둬서 쉬운 것들을 더 자주 선택
-    const weightedTasks: Task[] = [];
-    availableTasks.forEach((task) => {
-      const weight =
-        task.difficulty === "easy" ? 3 : task.difficulty === "medium" ? 2 : 1;
-      for (let i = 0; i < weight; i++) {
-        weightedTasks.push(task);
+      if (allowExtra) {
+        // 추가 할 일을 원하는 경우 - 완료 여부 상관없이 모든 할 일에서 선택
+        availableTasks = defaultTasks;
+      } else {
+        // 기본 모드 - 완료하지 않은 할 일만 선택
+        availableTasks = defaultTasks.filter(
+          (task) => !completedTaskIds.includes(task.id)
+        );
       }
-    });
 
-    // 랜덤으로 1개 선택
-    const shuffled = [...weightedTasks].sort(() => Math.random() - 0.5);
+      // 난이도별로 가중치를 둬서 쉬운 것들을 더 자주 선택
+      const weightedTasks: Task[] = [];
+      availableTasks.forEach((task) => {
+        const weight =
+          task.difficulty === "easy" ? 3 : task.difficulty === "medium" ? 2 : 1;
+        for (let i = 0; i < weight; i++) {
+          weightedTasks.push(task);
+        }
+      });
 
-    if (shuffled.length > 0) {
-      return [shuffled[0]];
-    }
+      // 랜덤으로 1개 선택
+      const shuffled = [...weightedTasks].sort(() => Math.random() - 0.5);
 
-    // 가중치 없이 선택할 수 있는 태스크가 있다면
-    if (availableTasks.length > 0) {
-      const randomIndex = Math.floor(Math.random() * availableTasks.length);
-      return [availableTasks[randomIndex]];
-    }
+      if (shuffled.length > 0) {
+        return [shuffled[0]];
+      }
 
-    return [];
-  }, [todayCompletedTasks]);
+      // 가중치 없이 선택할 수 있는 태스크가 있다면
+      if (availableTasks.length > 0) {
+        const randomIndex = Math.floor(Math.random() * availableTasks.length);
+        return [availableTasks[randomIndex]];
+      }
+
+      return [];
+    },
+    [todayCompletedTasks]
+  );
 
   // 할 일 완료 처리
   const completeTask = useCallback(

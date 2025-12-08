@@ -1,15 +1,21 @@
 "use client";
 
 import { useEffect } from "react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export interface UpgradeOption {
   id: string;
   name: string;
   description: string;
   icon: string;
-  type: 'weapon' | 'stat' | 'special';
+  type: "weapon" | "stat" | "special";
 }
 
 interface LevelUpModalProps {
@@ -19,24 +25,29 @@ interface LevelUpModalProps {
   onSelect: (option: UpgradeOption) => void;
 }
 
-export default function LevelUpModal({ isOpen, level, options, onSelect }: LevelUpModalProps) {
+export default function LevelUpModal({
+  isOpen,
+  level,
+  options,
+  onSelect,
+}: LevelUpModalProps) {
   // 키보드 단축키 (1, 2, 3) 지원
   useEffect(() => {
     if (!isOpen) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
       const key = e.key;
-      if (key === '1' && options[0]) {
+      if (key === "1" && options[0]) {
         onSelect(options[0]);
-      } else if (key === '2' && options[1]) {
+      } else if (key === "2" && options[1]) {
         onSelect(options[1]);
-      } else if (key === '3' && options[2]) {
+      } else if (key === "3" && options[2]) {
         onSelect(options[2]);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, options, onSelect]);
 
   if (!isOpen) return null;

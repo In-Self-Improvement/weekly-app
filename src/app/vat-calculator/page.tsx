@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { ArrowRight, Calculator, Info, Receipt, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,9 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, RotateCcw, Receipt, Info } from "lucide-react";
-import Link from "next/link";
 
 export default function VatCalculatorPage() {
   const [amount, setAmount] = useState<string>("");

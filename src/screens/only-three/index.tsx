@@ -3,13 +3,17 @@
 import { useCallback, useRef } from "react";
 import Header from "./_components/header";
 import TaskList from "./_components/task-list";
-import { useDarkMode } from "./_hooks/useDarkMode";
-import { useTasks } from "./_hooks/useTasks";
 import { useConfetti } from "./_hooks/useConfetti";
+import { useDarkMode } from "./_hooks/useDarkMode";
 import { useSound } from "./_hooks/useSound";
+import { useTasks } from "./_hooks/useTasks";
 
 export default function OnlyThreeScreen() {
-  const { isDarkMode, toggleDarkMode, isLoaded: darkModeLoaded } = useDarkMode();
+  const {
+    isDarkMode,
+    toggleDarkMode,
+    isLoaded: darkModeLoaded,
+  } = useDarkMode();
   const {
     tasks,
     toggleTask,
@@ -35,7 +39,8 @@ export default function OnlyThreeScreen() {
       if (!task.completed && task.text.trim()) {
         // 현재 완료된 태스크 수 계산 (토글 후)
         const newCompletedCount = completedCount + 1;
-        const willBeAllCompleted = newCompletedCount === 3 && tasks.every((t) => t.text.trim());
+        const willBeAllCompleted =
+          newCompletedCount === 3 && tasks.every((t) => t.text.trim());
 
         if (willBeAllCompleted && !prevAllCompletedRef.current) {
           // 3개 모두 완료!
@@ -54,7 +59,15 @@ export default function OnlyThreeScreen() {
 
       toggleTask(id);
     },
-    [tasks, completedCount, toggleTask, fireConfetti, fireAllCompleteConfetti, playCompleteSound, playAllCompleteSound]
+    [
+      tasks,
+      completedCount,
+      toggleTask,
+      fireConfetti,
+      fireAllCompleteConfetti,
+      playCompleteSound,
+      playAllCompleteSound,
+    ]
   );
 
   // 로딩 중일 때 깜빡임 방지

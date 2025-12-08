@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Task } from "../_types/taskType";
 import { getTodayString } from "../_utils/dateUtil";
 
@@ -72,7 +72,9 @@ export function useTasks() {
           ? {
               ...task,
               completed: !task.completed,
-              completedAt: !task.completed ? new Date().toISOString() : undefined,
+              completedAt: !task.completed
+                ? new Date().toISOString()
+                : undefined,
             }
           : task
       )
@@ -90,7 +92,8 @@ export function useTasks() {
   const completedCount = tasks.filter((t) => t.completed).length;
 
   // 모든 태스크가 완료되었는지
-  const allCompleted = completedCount === 3 && tasks.every((t) => t.text.trim());
+  const allCompleted =
+    completedCount === 3 && tasks.every((t) => t.text.trim());
 
   return {
     tasks,

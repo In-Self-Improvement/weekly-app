@@ -1,7 +1,13 @@
 "use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 export interface DifficultySettings {
   playerSpeed: number;
@@ -24,7 +30,10 @@ interface DifficultyModalProps {
   onSelect: (option: DifficultyOption) => void;
 }
 
-export default function DifficultyModal({ isOpen, onSelect }: DifficultyModalProps) {
+export default function DifficultyModal({
+  isOpen,
+  onSelect,
+}: DifficultyModalProps) {
   if (!isOpen) return null;
 
   const difficultyOptions: DifficultyOption[] = [
@@ -118,16 +127,24 @@ export default function DifficultyModal({ isOpen, onSelect }: DifficultyModalPro
               <div className="px-4 pb-4 text-sm text-gray-400">
                 <div className="flex justify-between">
                   <span>체력:</span>
-                  <span className="text-green-400">{option.settings.playerHealth}</span>
+                  <span className="text-green-400">
+                    {option.settings.playerHealth}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>이동 속도:</span>
-                  <span className="text-blue-400">{option.settings.playerSpeed}</span>
+                  <span className="text-blue-400">
+                    {option.settings.playerSpeed}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span>적 난이도:</span>
                   <span className="text-red-400">
-                    {option.id === "easy" ? "낮음" : option.id === "normal" ? "보통" : "높음"}
+                    {option.id === "easy"
+                      ? "낮음"
+                      : option.id === "normal"
+                      ? "보통"
+                      : "높음"}
                   </span>
                 </div>
               </div>
