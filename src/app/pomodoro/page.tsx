@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -11,6 +11,34 @@ export default function PomodoroPage() {
   const [isBreak, setIsBreak] = useState(false);
   const [sessions, setSessions] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleTimerComplete = useCallback(() => {
+    setIsActive(false);
+
+    if (!isBreak) {
+      // 작업 세션 완료
+      setSessions((prev) => prev + 1);
+      setIsBreak(true);
+      setMinutes(5);
+      setSeconds(0);
+    } else {
+      // 휴식 완료
+      setIsBreak(false);
+      setMinutes(25);
+      setSeconds(0);
+    }
+
+    // 알림음 재생 (브라우저 기본 알림)
+    const audio = new Audio(
+      "data:audio/wav;base64,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"
+    );
+    audio.play();
+  }, [isBreak]);
 
   useEffect(() => {
     if (isActive && (minutes > 0 || seconds > 0)) {
@@ -38,35 +66,7 @@ export default function PomodoroPage() {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isActive, minutes, seconds]);
-
-  const handleTimerComplete = () => {
-    setIsActive(false);
-
-    if (!isBreak) {
-      // 작업 세션 완료
-      setSessions(sessions + 1);
-      setIsBreak(true);
-      setMinutes(5);
-      setSeconds(0);
-    } else {
-      // 휴식 완료
-      setIsBreak(false);
-      setMinutes(25);
-      setSeconds(0);
-    }
-
-    // 알림음 재생 (브라우저 기본 알림)
-    const audio = new Audio(
-      "data:audio/wav;base64,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"
-    );
-    audio.play();
-  };
+  }, [isActive, minutes, seconds, handleTimerComplete]);
 
   const toggleTimer = () => {
     setIsActive(!isActive);
