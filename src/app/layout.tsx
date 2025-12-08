@@ -33,8 +33,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <body className={`${notoSansKR.variable} font-sans antialiased`}>
+    <html lang="ko" suppressHydrationWarning>
+      <body
+        className={`${notoSansKR.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         {/* Google AdSense */}
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7789818762160521"
